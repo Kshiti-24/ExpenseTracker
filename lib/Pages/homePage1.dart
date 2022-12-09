@@ -20,47 +20,55 @@ class _HomePage1State extends State<HomePage1> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 1,
-        title: Container(
-          color : Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                backgroundImage: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      "Welcome back,",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15.0,
-                      ),
-                    ),
-                    Text(
-                      "Ankur",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0),
-                    ),
-                  ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(64),
+        child: AppBar(
+          elevation: 1,
+          backgroundColor: Colors.white,
+          title: Container(
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 0 ),
+            color : Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
                 ),
-              ),
-              SizedBox(
-                width: 140.0,
-              ),
-              Icon(
-                Icons.widgets_outlined,
-                color: Colors.black,
-              ),
-            ],
+                Container(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Welcome back,",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15.0,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                      Text(
+                        "Ankur",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                          fontFamily: 'Poppins'
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 140.0,
+                ),
+                Icon(
+                  Icons.widgets_outlined,
+                  color: Colors.black,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -69,7 +77,7 @@ class _HomePage1State extends State<HomePage1> {
         child: Column(
           children: [
             SizedBox(
-              height: 100.0,
+              height: 96.0,
             ),
             Container(
               width: 330,
@@ -97,11 +105,11 @@ class _HomePage1State extends State<HomePage1> {
               ),
             ),
             SizedBox(
-              height: 24.0,
+              height: 20.0,
             ),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+                borderRadius: BorderRadius.all(Radius.circular(24)),
                 color: Color(0xFF303F9F),
               ),
               width: 330,
@@ -116,151 +124,123 @@ class _HomePage1State extends State<HomePage1> {
                     "    Total Spends",
                     style: TextStyle(
                       fontSize: 20,
-                      color: Colors.grey,
+                      color: Color(0xFFDFE1F3),
                       fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500
                     ),
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 8.0,
                   ),
                   Text(
                     "   ₹0",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 32,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       fontFamily: 'Poppins',
                     ),
                   ),
                   SizedBox(
-                    height: 32.0,
+                    height: 35.0,
                   ),
                   Text(
                     "₹18,000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -budget",
                     style: TextStyle(
-                        color: Colors.grey,
+                        color: Color(0xFFADB4E2),
                         fontFamily: 'Poppins',
                         fontSize: 15),
                   ),
                   SizedBox(
-                    height: 150.0,
+                    height: 135.0,
                   ),
                   Text(
-                    "                          Jan month's data",
+                    "                                          Jan month's data",
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Color(0xFFADB4E2),
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(
-                    height: 15.0,
+                    height: 24.0,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                    width: 296,
-                    height: 167,
-                    child: Column(children: [
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 18,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "   Pending KYC",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              "    You can complete your KYC ",
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text(
-                              "    on Paytm app in less",
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text(
-                              "    than 1 min.",
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(),
-                        Container(
-                          height: 120,
-                          width: 89,
-                          child: Stack(
+                  Stack(
+
+                    children:[ Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                      ),
+                      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                      width: 296,
+                      height: 164,
+                      child: Column(children: [
+                        Row(children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: RotatedBox(
-                                  quarterTurns: 1,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF1AE13B30),
-                                      borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(30),
-                                          bottomRight: Radius.circular(130),
-                                          topRight: Radius.circular(15),
-                                          topLeft: Radius.circular(0)),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "   Pending KYC",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Poppins'
                                     ),
                                   ),
+                                ],
+                              ),
+                              Text(
+                                "      You can complete your KYC\n      on Paytm app in less\n      than 1 min. ",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Poppins'
                                 ),
                               ),
-                              Center(
-                                child: Image.asset("assets/images/key-apple.png")
-                              )
                             ],
+                          ),
+                          
+                        ]),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(0, 0, 113, 0),
+                          width: 148,
+                          height: 39,
+                          decoration: BoxDecoration(
+                              color: Color(0xFFE13B30),
+                              borderRadius:
+                                  BorderRadius.all((Radius.circular(20)))),
+                          child: Center(
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(Color(0xFFE13B30)),
+                                fixedSize: MaterialStateProperty.all(const Size(148,39)),
+                                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ))
+                              ),
+                              onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage2())),
+                              child: Text(
+                              "Complete Now",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Poppins",
+                              ),
+                            ),
+                            ),
                           ),
                         ),
                       ]),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 113, 0),
-                        width: 148,
-                        height: 39,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFE13B30),
-                            borderRadius:
-                                BorderRadius.all((Radius.circular(20)))),
-                        child: Center(
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Color(0xFFE13B30)),
-                              fixedSize: MaterialStateProperty.all(const Size(148,39)),
-                              shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ))
-                            ),
-                            onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage2())),
-                            child: Text(
-                            "Complete Now",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "Poppins",
-                            ),
-                          ),
-                          ),
-                        ),
-                      ),
-                    ]),
-                  ),
+                    ),
+                  ]),
                 ],
               ),
             ),

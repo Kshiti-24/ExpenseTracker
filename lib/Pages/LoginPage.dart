@@ -1,3 +1,4 @@
+import 'package:expensetracker/Pages/resetPassword.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -11,12 +12,12 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-bool otpVisibility = false;
+bool otpVisibility = true;
 bool verify = false;
 
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
-  TextEditingController otpController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Container(
             width: 352,
             height: 645,
-            margin: EdgeInsets.fromLTRB(15, 61, 25, 25),
+            margin: EdgeInsets.fromLTRB(15, 61, 15, 25),
             decoration: BoxDecoration(
               border: Border.all(color : Colors.grey),
               color: Colors.indigo[200],
@@ -130,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 20,
                     ),
                     TextFormField(
-                      controller: otpController,
+                      controller: passwordController,
                       decoration: InputDecoration(
                         labelText: "Password",
                         border: new OutlineInputBorder(
@@ -147,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: () {
                             Navigator.pushReplacement(
                                 context, MaterialPageRoute(
-                                builder: (context) => LoginPage()));
+                                builder: (context) => ResetPasswordPage()));
                           },
                           child: Container(
                             width: 100,
@@ -236,65 +237,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Future<void> signInOtp(String email) async {
-    var response = await http.post(
-        Uri.parse(
-            "https://auth-backend-production-054a.up.railway.app/api/v1/auth/send-otp"),
-        body: json.encode({"email": email}));
-    print(email);
-    print(email);
-    print(response.body);
-    String s = response.body.substring(12, response.body.length - 2);
-    String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
-    print(s);
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      print("succees");
-      setState(() {
-        otpVisibility = true;
-        verify = true;
-      });
-    } else {
-      print("bad request");
-    }
-  }
 
-  Future<void> Verify(String email,String otp) async {
-    print(otp);
-    var intOtp=int.parse(otp);
-    print(intOtp);
-    var response = await http.post(
-        Uri.parse(
-            "https://auth-backend-production-054a.up.railway.app/api/v1/auth/verify"),
-        body: json.encode({"otp": intOtp, "email": email}));
-    print(intOtp);
-    print(email);
-    print(response.body);
-    String s = response.body.substring(12, response.body.length - 2);
-    String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
-    print(s);
-    print(response.statusCode);
-    if (otpController != 0 && email.isNotEmpty) {
-      if (response.statusCode == 200) {
-        print("done");
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
-          backgroundColor: Colors.blue,
-        ));
 
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage1()));
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
-          backgroundColor: Colors.red,
-        ));
-      }
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Not Allowed"),
-        backgroundColor: Colors.red,
-      ));
-    }
-  }
+
 }

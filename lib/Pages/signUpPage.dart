@@ -14,7 +14,7 @@ class SignUpPage extends StatefulWidget {
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
-bool otpVisibility=false;
+bool otpVisibility=true;
 bool check=false;
 class _SignUpPageState extends State<SignUpPage> {
   TextEditingController nameController = TextEditingController();
@@ -33,7 +33,7 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Container(
             width: 352,
             height: 645,
-            margin: EdgeInsets.fromLTRB(15, 61, 25, 25),
+            margin: EdgeInsets.fromLTRB(15, 61, 15, 25),
             decoration: BoxDecoration(
                 border: Border.all(color : Colors.grey),
                 color: Colors.indigo[200],
@@ -170,7 +170,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                             visible: otpVisibility,
                           ),
-                          SizedBox(height: 1,),
+                          SizedBox(height: 15,),
                           Row(
                             children: [
                               Text("    Already a user ?"),

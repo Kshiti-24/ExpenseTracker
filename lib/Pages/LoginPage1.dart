@@ -12,7 +12,7 @@ class LoginPage1 extends StatefulWidget {
   State<LoginPage1> createState() => _LoginPage1State();
 }
 
-bool otpVisibility=false;
+bool otpVisibility=true;
 bool check=false;
 
 class _LoginPage1State extends State<LoginPage1> {
@@ -36,7 +36,7 @@ class _LoginPage1State extends State<LoginPage1> {
           child: Container(
             width: 352,
             height: 645,
-            margin: EdgeInsets.fromLTRB(15, 61, 25, 25),
+            margin: EdgeInsets.fromLTRB(15, 61, 15, 25),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
               color: Colors.indigo[200],
@@ -124,7 +124,7 @@ class _LoginPage1State extends State<LoginPage1> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 20,),
+                    SizedBox(height: 40,),
                     TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
