@@ -1,29 +1,43 @@
-import 'package:expensetracker/Pages/homePage2.dart';
-import 'package:expensetracker/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:expensetracker/main.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-
-class HomePage1 extends StatefulWidget {
-  const HomePage1({Key? key}) : super(key: key);
+import 'package:spline_chart/spline_chart.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+class HomePage2 extends StatefulWidget {
+  const HomePage2({Key? key}) : super(key: key);
 
   @override
-  State<HomePage1> createState() => _HomePage1State();
+  State<HomePage2> createState() => _HomePage2State();
 }
 
-class _HomePage1State extends State<HomePage1> {
+class _HomePage2State extends State<HomePage2> {
   int _currentIndex = 0;
   PageController? _pageController;
 
   @override
   Widget build(BuildContext context) {
+    final List<ChartData> chartData = [
+      ChartData(0,5),
+      ChartData(5,20),
+      ChartData(15,30),
+      ChartData(20,25),
+      ChartData(25,15),
+      ChartData(35,50),
+      ChartData(20,25),
+
+
+
+
+
+
+    ];
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 1,
         title: Container(
-          color : Colors.white,
+          color: Colors.white,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,7 +119,7 @@ class _HomePage1State extends State<HomePage1> {
                 color: Color(0xFF303F9F),
               ),
               width: 330,
-              height: 511,
+              height: 530,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -142,8 +156,21 @@ class _HomePage1State extends State<HomePage1> {
                         fontFamily: 'Poppins',
                         fontSize: 15),
                   ),
-                  SizedBox(
-                    height: 150.0,
+                  Container(
+                    height: 160,
+                    width: 328,
+                    child: SfCartesianChart(
+                      backgroundColor: Color(0xFF303F9F) ,
+                      borderColor: Color(0xFF303F9F),
+                      series: <ChartSeries>[
+                        // Renders spline chart
+                        SplineSeries<ChartData, int>(
+                            dataSource: chartData,
+                            xValueMapper: (ChartData data, _) => data.x,
+                            yValueMapper: (ChartData data, _) => data.y
+                        )
+                      ],
+                    ),
                   ),
                   Text(
                     "                          Jan month's data",
@@ -151,114 +178,147 @@ class _HomePage1State extends State<HomePage1> {
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(
-                    height: 15.0,
-                  ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Color(0xFF303F9F),
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                     margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
                     width: 296,
-                    height: 167,
+                    height: 183,
                     child: Column(children: [
-                      Row(children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
                           children: [
-                            SizedBox(
-                              height: 18,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "   Pending KYC",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.w600,
+                            Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 144,
+                              height: 87,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                              ),
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width:24,
+                                        height: 24,
+                                        child:Image.asset("assets/images/img1.png"),
+                                      ),
+                                      Text("  Projected Saving",style: TextStyle(
+                                        fontSize: 12,
+                                        color: Color(0xFF525251),
+                                      ),)
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              "    You can complete your KYC ",
-                              style: TextStyle(
-                                fontSize: 14,
+                                  SizedBox(height: 10,),
+                                  Text("₹2,000",style: TextStyle(
+                                    fontSize: 21,
+                                  ),)
+                                ],
                               ),
                             ),
-                            Text(
-                              "    on Paytm app in less",
-                              style: TextStyle(
-                                fontSize: 14,
+                            SizedBox(height: 9,),
+                            Container(
+                              width: 144,
+                              height: 87,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
                               ),
-                            ),
-                            Text(
-                              "    than 1 min.",
-                              style: TextStyle(
-                                fontSize: 14,
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width:24,
+                                        height: 24,
+                                        child:Image.asset("assets/images/img1.png"),
+                                      ),
+                                      Text("  Highest Spent",style: TextStyle(
+                                        fontSize: 12,
+                                        color: Color(0xFF525251),
+                                      ),)
+                                    ],
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Text("₹2,000",style: TextStyle(
+                                    fontSize: 21,
+                                  ),)
+                                ],
                               ),
-                            ),
+                            )
                           ],
                         ),
-                        SizedBox(),
-                        Container(
-                          height: 120,
-                          width: 89,
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: RotatedBox(
-                                  quarterTurns: 1,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF1AE13B30),
-                                      borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(30),
-                                          bottomRight: Radius.circular(130),
-                                          topRight: Radius.circular(15),
-                                          topLeft: Radius.circular(0)),
-                                    ),
-                                  ),
-                                ),
+                            SizedBox(width: 10,),
+                            Container(
+                              width: 136,
+                              height: 183,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
                               ),
-                              Center(
-                                child: Image.asset("assets/images/key-apple.png")
-                              )
-                            ],
-                          ),
-                        ),
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Card balance",style: TextStyle(
+                                    fontSize: 16,
+                                  ),),
+                                  SizedBox(height: 10,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text("₹1,500",style: TextStyle(
+                                        fontSize: 21,
+                                        fontWeight:FontWeight.bold,
+                                      ),),
+                                      SizedBox(width: 10,),
+                                      Container(
+                                        width: 40,
+                                        height: 16,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF2AE13B30),
+                                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                                        ),
+                                        child: Center(
+                                          child: Text("Low bal",style: TextStyle(
+                                            color: Color(0xFFE13B30),
+                                            fontSize: 9,
+                                            fontWeight: FontWeight.bold,
+                                          ),),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 15,),
+                                  Container(
+                                    width: 78,
+                                    height: 80,
+                                    margin: EdgeInsets.fromLTRB(36, 0, 0, 0),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color(0xFF303F9F),
+                                    ),
+                                    child: Center(
+                                        child: Text("Add",style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontFamily: 'Poppins',
+                                        ),)),
+                                  ),
+                                ],
+                              ),
+                            )
+
                       ]),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 0, 113, 0),
-                        width: 148,
-                        height: 39,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFE13B30),
-                            borderRadius:
-                                BorderRadius.all((Radius.circular(20)))),
-                        child: Center(
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Color(0xFFE13B30)),
-                              fixedSize: MaterialStateProperty.all(const Size(148,39)),
-                              shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ))
-                            ),
-                            onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage2())),
-                            child: Text(
-                            "Complete Now",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "Poppins",
-                            ),
-                          ),
-                          ),
-                        ),
-                      ),
+
                     ]),
                   ),
                 ],
@@ -454,7 +514,8 @@ class _HomePage1State extends State<HomePage1> {
                                     Container(
                                         margin:
                                             EdgeInsets.fromLTRB(23, 23, 0, 0),
-                                        child: Image.asset("assets/images/img2.png")),
+                                        child: Image.asset(
+                                            "assets/images/img2.png")),
                                   ],
                                 ),
                                 SizedBox(
@@ -1616,4 +1677,9 @@ class _HomePage1State extends State<HomePage1> {
           ]),
     );
   }
+}
+class ChartData {
+  ChartData(this.x, this.y);
+  final int x;
+  final double? y;
 }

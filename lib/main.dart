@@ -1,7 +1,8 @@
+import 'package:expensetracker/Pages/homePage2.dart';
+import 'package:expensetracker/Pages/signUpPage.dart';
 import 'package:flutter/material.dart';
 import 'package:expensetracker/Pages/homePage1.dart';
 import 'package:expensetracker/utils/routes.dart';
-import 'package:expensetracker/widgets/theme.dart';
 
 
 void main() {
@@ -19,11 +20,11 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      theme: MyTheme.lightTheme(context),
-      darkTheme: MyTheme.darkTheme(context),
-      home: HomePage1(),
+      home: SignUpPage(),
       routes: {
         MyRoutes.homeRoute:(context) => HomePage1(),
+        MyRoutes.homeRoute2:(context) => HomePage2(),
+        MyRoutes.loginRoute:(context) => SignUpPage(),
       },
     );
   }
