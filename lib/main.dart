@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:expensetracker/Pages/homePage1.dart';
 import 'package:expensetracker/utils/routes.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -22,9 +21,9 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       home: SignUpPage(),
       routes: {
-        MyRoutes.homeRoute:(context) => HomePage1(),
-        MyRoutes.homeRoute2:(context) => HomePage2(),
-        MyRoutes.loginRoute:(context) => SignUpPage(),
+        MyRoutes.homeRoute: (context) => HomePage1(),
+        MyRoutes.homeRoute2: (context) => HomePage2(),
+        MyRoutes.loginRoute: (context) => SignUpPage(),
       },
     );
   }

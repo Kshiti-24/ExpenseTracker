@@ -111,7 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             spreadRadius: 4.0,
                           ), //BoxShadow
                           BoxShadow(
-                            color: Colors.white,
+                            color: Colors.indigo,
                             offset: const Offset(0.0, 0.0),
                             blurRadius: 2.0,
                             spreadRadius: 1.0,
@@ -173,7 +173,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           SizedBox(height: 15,),
                           Row(
                             children: [
-                              Text("    Already a user ?"),
+                              Text("    Already a user ?",style: TextStyle(
+                                fontFamily: 'Poppins'
+                              ),),
                               SizedBox(width: 10,),
                               GestureDetector(
                                 onTap: () {
@@ -208,7 +210,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   child: Center(child: Text("Login",style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'Poppins'
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white70,
                                   ),)),
                                 ),
                               )
@@ -256,7 +259,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),) : Text("Sign Up",style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70
                               ),)),
                             ),
                           ),

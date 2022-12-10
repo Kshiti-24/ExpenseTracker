@@ -12,8 +12,8 @@ class LoginPage1 extends StatefulWidget {
   State<LoginPage1> createState() => _LoginPage1State();
 }
 
-bool otpVisibility=true;
-bool check=false;
+bool otpVisibility = true;
+bool check = false;
 
 class _LoginPage1State extends State<LoginPage1> {
   TextEditingController emailController = TextEditingController();
@@ -24,14 +24,8 @@ class _LoginPage1State extends State<LoginPage1> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           color: Colors.indigo[100],
           child: Container(
             width: 352,
@@ -58,7 +52,6 @@ class _LoginPage1State extends State<LoginPage1> {
                   spreadRadius: 1.0,
                 ), //BoxShadow
               ],
-
             ),
             child: Column(children: [
               SizedBox(
@@ -90,12 +83,14 @@ class _LoginPage1State extends State<LoginPage1> {
                     ),
                   ),
                   Container(
-                    child: Lottie.asset(
-                        "assets/images/signUp.json", width: 132, height: 132),
+                    child: Lottie.asset("assets/images/signUp.json",
+                        width: 132, height: 132),
                   )
                 ],
               ),
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               Container(
                 padding: EdgeInsets.all(10),
                 height: 380,
@@ -115,7 +110,7 @@ class _LoginPage1State extends State<LoginPage1> {
                       spreadRadius: 4.0,
                     ), //BoxShadow
                     BoxShadow(
-                      color: Colors.white,
+                      color: Colors.indigo,
                       offset: const Offset(0.0, 0.0),
                       blurRadius: 2.0,
                       spreadRadius: 1.0,
@@ -124,7 +119,9 @@ class _LoginPage1State extends State<LoginPage1> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 40,),
+                    SizedBox(
+                      height: 40,
+                    ),
                     TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
@@ -150,16 +147,24 @@ class _LoginPage1State extends State<LoginPage1> {
                       ),
                       visible: otpVisibility,
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
-                        Text("    Login using email"),
-                        SizedBox(width: 0,),
+                        Text(
+                          "    Login using email",
+                          style: TextStyle(fontFamily: 'Poppins'),
+                        ),
+                        SizedBox(
+                          width: 0,
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.pushReplacement(
-                                context, MaterialPageRoute(
-                                builder: (context) => LoginPage()));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
                           },
                           child: Container(
                             width: 83,
@@ -167,8 +172,8 @@ class _LoginPage1State extends State<LoginPage1> {
                             margin: EdgeInsets.fromLTRB(38, 0, 0, 0),
                             decoration: BoxDecoration(
                               color: Colors.indigo[200],
-                              borderRadius: BorderRadius.all(
-                                  Radius.circular(10)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black26,
@@ -187,15 +192,21 @@ class _LoginPage1State extends State<LoginPage1> {
                                 ), //BoxShadow
                               ],
                             ),
-                            child: Center(child: Text("Login", style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Poppins'
-                            ),)),
+                            child: Center(
+                                child: Text(
+                              "Login",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white70),
+                            )),
                           ),
                         )
                       ],
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(
+                      height: 40,
+                    ),
                     GestureDetector(
                       onTap: () {
                         // login(
@@ -204,8 +215,10 @@ class _LoginPage1State extends State<LoginPage1> {
                         //     passwordController.text.toString());
                         // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
 
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                            builder: (context) => HomePage1()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage1()));
                       },
                       child: Container(
                         width: 230,
@@ -231,16 +244,24 @@ class _LoginPage1State extends State<LoginPage1> {
                             ), //BoxShadow
                           ],
                         ),
-                        child: Center(child: check ? Text(
-                          "Verify", style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
-                        ),) : Text("Login", style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
-                        ),)),
+                        child: Center(
+                            child: check
+                                ? Text(
+                                    "Verify",
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white70),
+                                  )
+                                : Text(
+                                    "Login",
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white70),
+                                  )),
                       ),
                     ),
                   ],

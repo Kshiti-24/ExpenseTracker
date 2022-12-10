@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 645,
             margin: EdgeInsets.fromLTRB(15, 61, 15, 25),
             decoration: BoxDecoration(
-              border: Border.all(color : Colors.grey),
+              border: Border.all(color: Colors.grey),
               color: Colors.indigo[200],
               borderRadius: BorderRadius.all(Radius.circular(40)),
               boxShadow: [
@@ -52,7 +52,6 @@ class _LoginPageState extends State<LoginPage> {
                   spreadRadius: 1.0,
                 ), //BoxShadow
               ],
-
             ),
             child: Column(children: [
               SizedBox(
@@ -84,17 +83,20 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Container(
-                    child: Lottie.asset("assets/images/signUp.json",width: 132,height: 132),
+                    child: Lottie.asset("assets/images/signUp.json",
+                        width: 132, height: 132),
                   )
                 ],
               ),
-              SizedBox(height: 60,),
+              SizedBox(
+                height: 60,
+              ),
               Container(
                 padding: EdgeInsets.all(10),
                 height: 380,
                 width: 280,
                 decoration: BoxDecoration(
-                  border: Border.all(color : Colors.grey),
+                  border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   color: Colors.indigo[100],
                   boxShadow: [
@@ -108,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       spreadRadius: 4.0,
                     ), //BoxShadow
                     BoxShadow(
-                      color: Colors.white,
+                      color: Colors.indigo,
                       offset: const Offset(0.0, 0.0),
                       blurRadius: 2.0,
                       spreadRadius: 1.0,
@@ -117,7 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 40,),
+                    SizedBox(
+                      height: 40,
+                    ),
                     TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
@@ -139,16 +143,24 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30,),
+                    SizedBox(
+                      height: 30,
+                    ),
                     Row(
                       children: [
-                        Text("   Forgot Password ?"),
-                        SizedBox(width: 10,),
+                        Text(
+                          "   Forgot Password ?",
+                          style: TextStyle(fontFamily: 'Poppins'),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.pushReplacement(
-                                context, MaterialPageRoute(
-                                builder: (context) => ResetPasswordPage()));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ResetPasswordPage()));
                           },
                           child: Container(
                             width: 100,
@@ -156,7 +168,8 @@ class _LoginPageState extends State<LoginPage> {
                             margin: EdgeInsets.fromLTRB(18, 0, 0, 0),
                             decoration: BoxDecoration(
                               color: Colors.indigo[200],
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black26,
@@ -175,17 +188,22 @@ class _LoginPageState extends State<LoginPage> {
                                 ), //BoxShadow
                               ],
                             ),
-                            child: Center(child: Text("Reset Password",style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Poppins',
-                              fontSize: 12
-
-                            ),)),
+                            child: Center(
+                                child: Text(
+                              "Reset Password",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white70,
+                                  fontSize: 12),
+                            )),
                           ),
                         )
                       ],
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(
+                      height: 40,
+                    ),
                     GestureDetector(
                       onTap: () {
                         // login(
@@ -194,7 +212,10 @@ class _LoginPageState extends State<LoginPage> {
                         //     passwordController.text.toString());
                         // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
 
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage1()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage1()));
                       },
                       child: Container(
                         width: 230,
@@ -220,11 +241,15 @@ class _LoginPageState extends State<LoginPage> {
                             ), //BoxShadow
                           ],
                         ),
-                        child: Center(child: Text("Login",style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
-                        ),)),
+                        child: Center(
+                            child: Text(
+                          "Login",
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: Colors.white70,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        )),
                       ),
                     ),
                   ],
@@ -236,8 +261,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
-
-
-
 }

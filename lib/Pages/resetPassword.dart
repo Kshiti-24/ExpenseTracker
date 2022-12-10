@@ -12,12 +12,12 @@ class ResetPasswordPage extends StatefulWidget {
   @override
   State<ResetPasswordPage> createState() => _ResetPasswordPageState();
 }
-bool otpVisibility=true;
-bool check=false;
-bool passwordVisibility=true;
+
+bool otpVisibility = true;
+bool check = false;
+bool passwordVisibility = true;
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
-
   TextEditingController otpController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -27,14 +27,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           color: Colors.indigo[100],
           child: Container(
             width: 352,
@@ -61,7 +55,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   spreadRadius: 1.0,
                 ), //BoxShadow
               ],
-
             ),
             child: Column(children: [
               SizedBox(
@@ -93,12 +86,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                   ),
                   Container(
-                    child: Lottie.asset(
-                        "assets/images/signUp.json", width: 132, height: 132),
+                    child: Lottie.asset("assets/images/signUp.json",
+                        width: 132, height: 132),
                   )
                 ],
               ),
-              SizedBox(height: 40,),
+              SizedBox(
+                height: 40,
+              ),
               Container(
                 padding: EdgeInsets.all(10),
                 height: 380,
@@ -118,7 +113,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       spreadRadius: 4.0,
                     ), //BoxShadow
                     BoxShadow(
-                      color: Colors.white,
+                      color: Colors.indigo,
                       offset: const Offset(0.0, 0.0),
                       blurRadius: 2.0,
                       spreadRadius: 1.0,
@@ -127,7 +122,9 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 25,),
+                    SizedBox(
+                      height: 25,
+                    ),
                     TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
@@ -153,7 +150,9 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       ),
                       visible: otpVisibility,
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Visibility(
                       child: TextFormField(
                         controller: otpController,
@@ -167,7 +166,9 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       ),
                       visible: passwordVisibility,
                     ),
-                    SizedBox(height: 29,),
+                    SizedBox(
+                      height: 29,
+                    ),
                     GestureDetector(
                       onTap: () {
                         // login(
@@ -176,8 +177,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         //     passwordController.text.toString());
                         // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
 
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                            builder: (context) => LoginPage1()));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage1()));
                       },
                       child: Container(
                         width: 230,
@@ -203,16 +206,24 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                             ), //BoxShadow
                           ],
                         ),
-                        child: Center(child: check ? Text(
-                          "Verify", style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
-                        ),) : Text("Reset Password", style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold
-                        ),)),
+                        child: Center(
+                            child: check
+                                ? Text(
+                                    "Verify",
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white70),
+                                  )
+                                : Text(
+                                    "Reset Password",
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white70),
+                                  )),
                       ),
                     ),
                   ],

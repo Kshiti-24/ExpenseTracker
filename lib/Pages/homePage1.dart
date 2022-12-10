@@ -19,63 +19,61 @@ class _HomePage1State extends State<HomePage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(64),
-        child: AppBar(
-          elevation: 1,
-          backgroundColor: Colors.white,
-          title: Container(
-            margin: EdgeInsets.fromLTRB(0, 10, 0, 0 ),
-            color : Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Welcome back,",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                          fontFamily: 'Poppins',
-                        ),
-                      ),
-                      Text(
-                        "Ankur",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          fontFamily: 'Poppins'
-                        ),
-                      ),
-                    ],
+        extendBodyBehindAppBar: true,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(64),
+          child: AppBar(
+            elevation: 1,
+            backgroundColor: Colors.white,
+            title: Container(
+              margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
                   ),
-                ),
-                SizedBox(
-                  width: 140.0,
-                ),
-                Icon(
-                  Icons.widgets_outlined,
-                  color: Colors.black,
-                ),
-              ],
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Welcome back,",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0,
+                            fontFamily: 'Poppins',
+                          ),
+                        ),
+                        Text(
+                          "Ankur",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                              fontFamily: 'Poppins'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 140.0,
+                  ),
+                  Icon(
+                    Icons.widgets_outlined,
+                    color: Colors.black,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(17, 15, 10, 5),
-        child: Column(
-          children: [
+        body: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(17, 15, 10, 5),
+          child: Column(children: [
             SizedBox(
               height: 96.0,
             ),
@@ -105,7 +103,7 @@ class _HomePage1State extends State<HomePage1> {
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 24.0,
             ),
             Container(
               decoration: BoxDecoration(
@@ -115,148 +113,154 @@ class _HomePage1State extends State<HomePage1> {
               width: 330,
               height: 511,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 24.0,
-                  ),
-                  Text(
-                    "    Total Spends",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xFFDFE1F3),
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 24.0,
                     ),
-                  ),
-                  SizedBox(
-                    height: 8.0,
-                  ),
-                  Text(
-                    "   ₹0",
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Poppins',
+                    Text(
+                      "    Total Spends",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xFFDFE1F3),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500),
                     ),
-                  ),
-                  SizedBox(
-                    height: 35.0,
-                  ),
-                  Text(
-                    "₹18,000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -budget",
-                    style: TextStyle(
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    Text(
+                      "   ₹0",
+                      style: TextStyle(
+                        fontSize: 32,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 35.0,
+                    ),
+                    Text(
+                      "₹18,000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -budget",
+                      style: TextStyle(
+                          color: Color(0xFFADB4E2),
+                          fontFamily: 'Poppins',
+                          fontSize: 15),
+                    ),
+                    SizedBox(
+                      height: 135.0,
+                    ),
+                    Text(
+                      "                                          Jan month's data",
+                      style: TextStyle(
                         color: Color(0xFFADB4E2),
                         fontFamily: 'Poppins',
-                        fontSize: 15),
-                  ),
-                  SizedBox(
-                    height: 135.0,
-                  ),
-                  Text(
-                    "                                          Jan month's data",
-                    style: TextStyle(
-                      color: Color(0xFFADB4E2),
-                      fontFamily: 'Poppins',
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 24.0,
-                  ),
-                  Stack(
-
-                    children:[ Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
                       ),
-                      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-                      width: 296,
-                      height: 164,
-                      child: Column(children: [
-                        Row(children: [
-                          Column(
+                    ),
+                    SizedBox(
+                      height: 24.0,
+                    ),
+                    Stack(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(16)),
+                        ),
+                        margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                        width: 296,
+                        height: 168,
+                        child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
                                 height: 16,
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "   Pending KYC",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: 'Poppins'
-                                    ),
-                                  ),
-                                ],
+                              Text(
+                                "    Pending KYC",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'Poppins'),
+                              ),
+                              SizedBox(
+                                height: 7,
                               ),
                               Text(
                                 "      You can complete your KYC\n      on Paytm app in less\n      than 1 min. ",
                                 style: TextStyle(
-                                  fontSize: 10,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    fontFamily: 'Poppins'
-                                ),
+                                    fontFamily: 'Poppins'),
                               ),
-                            ],
-                          ),
-                          
-                        ]),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 113, 0),
-                          width: 148,
-                          height: 39,
-                          decoration: BoxDecoration(
-                              color: Color(0xFFE13B30),
-                              borderRadius:
-                                  BorderRadius.all((Radius.circular(20)))),
-                          child: Center(
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(Color(0xFFE13B30)),
-                                fixedSize: MaterialStateProperty.all(const Size(148,39)),
-                                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            ]),
+                      ),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(32, 104, 150, 16),
+                        width: 148,
+                        height: 39,
+                        decoration: BoxDecoration(
+                            color: Color(0xFFE13B30),
+                            borderRadius:
+                                BorderRadius.all((Radius.circular(84)))),
+                        child: Center(
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Color(0xFFE13B30)),
+                                fixedSize: MaterialStateProperty.all(
+                                    const Size(148, 39)),
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                ))
-                              ),
-                              onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomePage2())),
-                              child: Text(
+                                ))),
+                            onPressed: () => Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage2())),
+                            child: Text(
                               "Complete Now",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Poppins",
                               ),
                             ),
-                            ),
                           ),
                         ),
-                      ]),
-                    ),
+                      ),
+                      Positioned(
+                        top: -28,
+                        right: -36,
+                        child: Container(
+                          height: 144,
+                          width: 144,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: Color(0x1AE13B30)),
+                          child: Container(
+                              margin: EdgeInsets.fromLTRB(0, 24, 45, 0),
+                              child: Image.asset('assets/images/img.png')),
+                        ),
+                      ),
+                    ]),
                   ]),
-                ],
-              ),
             ),
             SizedBox(
-              height: 20,
+              height: 49,
             ),
             Container(
               alignment: Alignment.topLeft,
               child: Text("Categories",
                   style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 25,
-                  )),
+                      fontFamily: "Poppins",
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(
-              height: 20,
+              height: 12,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -275,12 +279,18 @@ class _HomePage1State extends State<HomePage1> {
                       child: Image.asset('assets/images/img.png'),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text("Food"),
+                    Text(
+                      "Food",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                      ),
+                    ),
                   ]),
                   SizedBox(
-                    width: 29,
+                    width: 24,
                   ),
                   Column(children: [
                     Container(
@@ -293,12 +303,18 @@ class _HomePage1State extends State<HomePage1> {
                       child: Image.asset('assets/images/img1.png'),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text("Pet"),
+                    Text(
+                      "Pet",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                      ),
+                    ),
                   ]),
                   SizedBox(
-                    width: 29,
+                    width: 24,
                   ),
                   Column(children: [
                     Container(
@@ -311,12 +327,18 @@ class _HomePage1State extends State<HomePage1> {
                       child: Image.asset('assets/images/img2.png'),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text("Shopping"),
+                    Text(
+                      "Shopping",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                      ),
+                    ),
                   ]),
                   SizedBox(
-                    width: 29,
+                    width: 24,
                   ),
                   Column(children: [
                     Container(
@@ -329,12 +351,18 @@ class _HomePage1State extends State<HomePage1> {
                       child: Image.asset('assets/images/img3.png'),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text("Entertainment"),
+                    Text(
+                      "Entertainment",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                      ),
+                    ),
                   ]),
                   SizedBox(
-                    width: 29,
+                    width: 24,
                   ),
                   Column(children: [
                     Container(
@@ -347,12 +375,18 @@ class _HomePage1State extends State<HomePage1> {
                       child: Image.asset('assets/images/img4.png'),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text("Personal Care"),
+                    Text(
+                      "Personal Care",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                      ),
+                    ),
                   ]),
                   SizedBox(
-                    width: 29,
+                    width: 24,
                   ),
                   Column(children: [
                     Container(
@@ -365,29 +399,35 @@ class _HomePage1State extends State<HomePage1> {
                       child: Image.asset('assets/images/img5.png'),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 12,
                     ),
-                    Text("Travel"),
+                    Text(
+                      "Travel",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                      ),
+                    ),
                   ]),
                   SizedBox(
-                    width: 29,
+                    width: 24,
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 36,
             ),
             Container(
               alignment: Alignment.topLeft,
               child: Text("Task",
                   style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 25,
-                  )),
+                      fontFamily: "Poppins",
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(
-              height: 20,
+              height: 8,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -434,7 +474,8 @@ class _HomePage1State extends State<HomePage1> {
                                     Container(
                                         margin:
                                             EdgeInsets.fromLTRB(23, 23, 0, 0),
-                                        child: Image.asset("assets/images/img2.png")),
+                                        child: Image.asset(
+                                            "assets/images/img2.png")),
                                   ],
                                 ),
                                 SizedBox(
@@ -463,109 +504,25 @@ class _HomePage1State extends State<HomePage1> {
                                 style: TextStyle(
                                     color: Color(0xFF0C0C0C),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "Create category and",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "earn ₹25",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                             ],
                           ))
                         ]),
                   ),
                   SizedBox(
-                    width: 29,
-                  ),
-                  Container(
-                    width: 156,
-                    height: 152,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFFEEEEEE)),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Stack(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.topLeft,
-                                      child: RotatedBox(
-                                        quarterTurns: 1,
-                                        child: Container(
-                                          margin:
-                                              EdgeInsets.fromLTRB(0, 0, 20, 0),
-                                          height: 85,
-                                          width: 85,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFD6F4DE),
-                                            borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(20),
-                                                bottomRight:
-                                                    Radius.circular(20),
-                                                topRight: Radius.circular(60),
-                                                topLeft: Radius.circular(20)),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                        margin:
-                                            EdgeInsets.fromLTRB(23, 23, 0, 0),
-                                        child: Image.asset(
-                                            "assets/images/img6.png")),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 12,
-                                ),
-                                Container(
-                                  width: 41,
-                                  height: 48,
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
-                                  child: Image.asset("assets/images/img7.png"),
-                                )
-                              ]),
-                          Center(
-                              child: Column(
-                            children: [
-                              Text(
-                                "Complete KYC",
-                                style: TextStyle(
-                                    color: Color(0xFF0C0C0C),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15),
-                              ),
-                              Text(
-                                "Create category and",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                ),
-                              ),
-                              Text(
-                                "earn ₹25",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ],
-                          ))
-                        ]),
-                  ),
-                  SizedBox(
-                    width: 29,
+                    width: 8,
                   ),
                   Container(
                     width: 156,
@@ -637,26 +594,25 @@ class _HomePage1State extends State<HomePage1> {
                                 style: TextStyle(
                                     color: Color(0xFF0C0C0C),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "Create category and",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "earn ₹25",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                             ],
                           ))
                         ]),
                   ),
                   SizedBox(
-                    width: 29,
+                    width: 8,
                   ),
                   Container(
                     width: 156,
@@ -732,26 +688,25 @@ class _HomePage1State extends State<HomePage1> {
                                 style: TextStyle(
                                     color: Color(0xFF0C0C0C),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "Create category and",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "earn ₹25",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                             ],
                           ))
                         ]),
                   ),
                   SizedBox(
-                    width: 29,
+                    width: 8,
                   ),
                   Container(
                     width: 156,
@@ -827,26 +782,25 @@ class _HomePage1State extends State<HomePage1> {
                                 style: TextStyle(
                                     color: Color(0xFF0C0C0C),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "Create category and",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "earn ₹25",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                             ],
                           ))
                         ]),
                   ),
                   SizedBox(
-                    width: 29,
+                    width: 8,
                   ),
                   Container(
                     width: 156,
@@ -918,26 +872,25 @@ class _HomePage1State extends State<HomePage1> {
                                 style: TextStyle(
                                     color: Color(0xFF0C0C0C),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
+                                    fontSize: 15,
+                                    fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "Create category and",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "earn ₹25",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                             ],
                           ))
                         ]),
                   ),
                   SizedBox(
-                    width: 29,
+                    width: 8,
                   ),
                   Container(
                     width: 156,
@@ -991,7 +944,7 @@ class _HomePage1State extends State<HomePage1> {
                                   height: 48,
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
                                   child: Text(
-                                    "05",
+                                    "06",
                                     style: TextStyle(
                                       fontSize: 35,
                                       color: Color(0xFFe9e7d3),
@@ -1007,46 +960,44 @@ class _HomePage1State extends State<HomePage1> {
                               Text(
                                 "Make 5 taxn in each categ.",
                                 style: TextStyle(
-                                  color: Color(0xFF0C0C0C),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                ),
+                                    color: Color(0xFF0C0C0C),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                    fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "Create category and",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                               Text(
                                 "earn ₹25",
                                 style: TextStyle(
-                                  fontSize: 10,
-                                ),
+                                    fontSize: 10, fontFamily: 'Poppins'),
                               ),
                             ],
                           ))
                         ]),
                   ),
                   SizedBox(
-                    width: 29,
+                    width: 8,
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             Container(
               alignment: Alignment.topLeft,
               child: Text("Offers & Rewards",
                   style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 25,
-                  )),
+                      fontFamily: "Poppins",
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(
-              height: 10,
+              height: 8,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -1083,13 +1034,13 @@ class _HomePage1State extends State<HomePage1> {
                             child: Text(
                               "A rewarding celebration",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                              ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22,
+                                  fontFamily: 'Poppins'),
                             ),
                           ),
                           SizedBox(
-                            height: 18,
+                            height: 12,
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(0, 0, 29, 0),
@@ -1124,10 +1075,10 @@ class _HomePage1State extends State<HomePage1> {
                               child: Text(
                                 "Explore rewards  +",
                                 style: TextStyle(
-                                  color: Color(0xFF303F9F),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
+                                    color: Color(0xFF303F9F),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontFamily: 'Poppins'),
                               ),
                             ),
                           )
@@ -1136,7 +1087,7 @@ class _HomePage1State extends State<HomePage1> {
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 16,
                   ),
                   Card(
                     elevation: 5,
@@ -1169,13 +1120,13 @@ class _HomePage1State extends State<HomePage1> {
                             child: Text(
                               "A rewarding celebration",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                              ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22,
+                                  fontFamily: 'Poppins'),
                             ),
                           ),
                           SizedBox(
-                            height: 18,
+                            height: 12,
                           ),
                           Container(
                             margin: EdgeInsets.fromLTRB(0, 0, 29, 0),
@@ -1210,10 +1161,10 @@ class _HomePage1State extends State<HomePage1> {
                               child: Text(
                                 "Explore rewards  +",
                                 style: TextStyle(
-                                  color: Color(0xFF303F9F),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
+                                    color: Color(0xFF303F9F),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontFamily: 'Poppins'),
                               ),
                             ),
                           )
@@ -1225,15 +1176,15 @@ class _HomePage1State extends State<HomePage1> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             Container(
               alignment: Alignment.topLeft,
               child: Text("Blogs",
                   style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 25,
-                  )),
+                      fontFamily: "Poppins",
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500)),
             ),
             SizedBox(
               height: 10,
@@ -1268,9 +1219,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "4 methods of calculating",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         Container(
@@ -1278,9 +1229,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "Network,Which no one will",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         Container(
@@ -1301,10 +1252,10 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "Read Time: 8 mins",
                             style: TextStyle(
-                              color: Color(0xFF303F9F),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
+                                color: Color(0xFF303F9F),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         SizedBox(
@@ -1327,11 +1278,17 @@ class _HomePage1State extends State<HomePage1> {
                               SizedBox(
                                 width: 5,
                               ),
-                              Text("Ann Korkowski"),
+                              Text(
+                                "Ann Korkowski",
+                                style: TextStyle(fontFamily: 'Poppins'),
+                              ),
                               SizedBox(
                                 width: 56,
                               ),
-                              Text("08/09/2022"),
+                              Text(
+                                "08/09/2022",
+                                style: TextStyle(fontFamily: 'Poppins'),
+                              ),
                             ],
                           ),
                         ),
@@ -1367,9 +1324,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "4 methods of calculating",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         Container(
@@ -1377,9 +1334,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "Network,Which no one will",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         Container(
@@ -1387,9 +1344,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "tell you",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         SizedBox(
@@ -1400,10 +1357,10 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "Read Time: 8 mins",
                             style: TextStyle(
-                              color: Color(0xFF303F9F),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
+                                color: Color(0xFF303F9F),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         SizedBox(
@@ -1426,11 +1383,17 @@ class _HomePage1State extends State<HomePage1> {
                               SizedBox(
                                 width: 5,
                               ),
-                              Text("Ann Korkowski"),
+                              Text(
+                                "Ann Korkowski",
+                                style: TextStyle(fontFamily: 'Poppins'),
+                              ),
                               SizedBox(
                                 width: 56,
                               ),
-                              Text("08/09/2022"),
+                              Text(
+                                "08/09/2022",
+                                style: TextStyle(fontFamily: 'Poppins'),
+                              ),
                             ],
                           ),
                         ),
@@ -1466,9 +1429,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "4 methods of calculating",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         Container(
@@ -1476,9 +1439,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "Network,Which no one will",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         Container(
@@ -1486,9 +1449,9 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "tell you",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         SizedBox(
@@ -1499,10 +1462,10 @@ class _HomePage1State extends State<HomePage1> {
                           child: Text(
                             "Read Time: 8 mins",
                             style: TextStyle(
-                              color: Color(0xFF303F9F),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
+                                color: Color(0xFF303F9F),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                         SizedBox(
@@ -1525,11 +1488,17 @@ class _HomePage1State extends State<HomePage1> {
                               SizedBox(
                                 width: 5,
                               ),
-                              Text("Ann Korkowski"),
+                              Text(
+                                "Ann Korkowski",
+                                style: TextStyle(fontFamily: 'Poppins'),
+                              ),
                               SizedBox(
                                 width: 56,
                               ),
-                              Text("08/09/2022"),
+                              Text(
+                                "08/09/2022",
+                                style: TextStyle(fontFamily: 'Poppins'),
+                              ),
                             ],
                           ),
                         ),
@@ -1575,25 +1544,78 @@ class _HomePage1State extends State<HomePage1> {
             SizedBox(
               height: 74,
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-          selectedIndex: _currentIndex,
-          onItemSelected: (index) {
-            setState(() => _currentIndex = index);
-            _pageController!.jumpToPage(index);
-          },
-          items: <BottomNavyBarItem>[
-            BottomNavyBarItem(title: Text('Home'), icon: Icon(Icons.home)),
-            BottomNavyBarItem(title: Text('Item Two'), icon: Icon(Icons.apps)),
-            BottomNavyBarItem(
-                title: Text('Item Three'), icon: Icon(Icons.chat_bubble)),
-            BottomNavyBarItem(
-              title: Text('Item Four'),
-              icon: Icon(Icons.settings),
-            ),
           ]),
-    );
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.all(8),
+          child: Container(
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                offset: const Offset(
+                  5.0,
+                  5.0,
+                ),
+                blurRadius: 7.0,
+                spreadRadius: 2.0,
+              ),
+            ]),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: BottomNavyBar(
+                containerHeight: 56.0,
+                selectedIndex: 0,
+                showElevation: false,
+                itemCornerRadius: 50,
+                backgroundColor: Colors.white,
+                curve: Curves.easeIn,
+                onItemSelected: (index) => setState(() {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => HomePage1()));
+                }),
+                mainAxisAlignment: MainAxisAlignment.center,
+                items: <BottomNavyBarItem>[
+                  BottomNavyBarItem(
+                    inactiveColor: Colors.black,
+                    icon: Icon(Icons.home_filled),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(fontFamily: 'Poppins', fontSize: 14),
+                    ),
+                    activeColor: Color(0xFF303F9F),
+                    textAlign: TextAlign.center,
+                  ),
+                  BottomNavyBarItem(
+                    inactiveColor: Colors.black,
+                    icon: Icon(
+                      Icons.credit_card_outlined,
+                      color: Color(0xFFB7B7B7),
+                    ),
+                    title: Text('Home'),
+                    activeColor: Colors.red,
+                    textAlign: TextAlign.center,
+                  ),
+                  BottomNavyBarItem(
+                    inactiveColor: Colors.black,
+                    icon: Icon(
+                      Icons.pie_chart_outline,
+                      color: Color(0xFFB7B7B7),
+                    ),
+                    title: Text('Home'),
+                    activeColor: Colors.red,
+                    textAlign: TextAlign.center,
+                  ),
+                  BottomNavyBarItem(
+                    inactiveColor: Colors.black,
+                    icon: Icon(Icons.apps),
+                    title: Text('Home'),
+                    activeColor: Colors.red,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
