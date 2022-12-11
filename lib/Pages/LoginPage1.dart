@@ -214,7 +214,7 @@ class _LoginPage1State extends State<LoginPage1> {
                         //     emailController.text.toString(),
                         //     passwordController.text.toString());
                         // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
-
+                       // check ? Verify(emailController.text.toString(), otpController.text.toString()) : signInOtp(emailController.text.toString());
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -273,4 +273,66 @@ class _LoginPage1State extends State<LoginPage1> {
       ),
     );
   }
+  // Future<void> signInOtp(String email) async{
+  //   var response= await http.post(Uri.parse("https://auth-backend-production-054a.up.railway.app/api/v1/auth/send-otp"),
+  //       body: json.encode({
+  //         "email" : email
+  //       })
+  //   );
+  //   print(email);
+  //   print(email);
+  //   print(response.body);
+  //   String s = response.body.substring(12, response.body.length - 2);
+  //   String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+  //   print(s);
+  //   print(response.statusCode);
+  //   if(response.statusCode==200){
+  //     print("succees");
+  //     setState(() {
+  //       otpVisibility = true;
+  //       check = true;
+  //     });
+  //   }
+  //   else{
+  //     print("bad request");
+  //   }
+  // }
+  // Future<void> Verify(String email, String otp) async {
+  //   print(otp);
+  //   var intOtp = int.parse(otp);
+  //   print(intOtp);
+  //   var response = await http.post(
+  //       Uri.parse(
+  //           "https://auth-backend-production-054a.up.railway.app/api/v1/auth/verify"),
+  //       body: json.encode({"otp": intOtp, "email": email}));
+  //   print(intOtp);
+  //   print(email);
+  //   print(response.body);
+  //   String s = response.body.substring(12, response.body.length - 2);
+  //   String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+  //   print(s);
+  //   print(response.statusCode);
+  //   if (otpController != 0 && email.isNotEmpty) {
+  //     if (response.statusCode == 200) {
+  //       print("done");
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         content: Text(s1),
+  //         backgroundColor: Colors.blue,
+  //       ));
+  //
+  //       Navigator.pushReplacement(
+  //           context, MaterialPageRoute(builder: (context) => HomePage1()));
+  //     } else {
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         content: Text(s1),
+  //         backgroundColor: Colors.red,
+  //       ));
+  //     }
+  //   } else {
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //       content: Text("Not Allowed"),
+  //       backgroundColor: Colors.red,
+  //     ));
+  //   }
+  // }
 }

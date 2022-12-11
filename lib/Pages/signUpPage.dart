@@ -15,7 +15,7 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-bool otpVisibility = false;
+bool otpVisibility = true;
 bool check = false;
 
 class _SignUpPageState extends State<SignUpPage> {
@@ -193,7 +193,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPage1()));
+                                    builder: (context) => LoginPage()));
                           },
                           child: Container(
                             width: 65,
@@ -244,7 +244,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             emailController.text.toString(),
                             passwordController.text.toString());
                         check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
-                        //
+
                         // Navigator.pushReplacement(
                         //     context,
                         //     MaterialPageRoute(

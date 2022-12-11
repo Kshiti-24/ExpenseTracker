@@ -171,7 +171,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // login(
+                        // reset(
                         //     nameController.text.toString(),
                         //     emailController.text.toString(),
                         //     passwordController.text.toString());
@@ -235,4 +235,87 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
       ),
     );
   }
+
+  // Future<void> reset(int otp ,String email, String password) async {
+  //
+  //   print(password);
+  //   print(email);
+  //   if (password.isNotEmpty && email.isNotEmpty ) {
+  //     var response = await http.post(
+  //         Uri.parse(
+  //             "https://auth-backend-production-054a.up.railway.app/api/v1/auth/reset"),
+  //         body: json.encode({
+  //           'email': email.toString(),
+  //           'password': password.toString(),
+  //         }));
+  //     print(response.statusCode);
+  //     print(response.body);
+  //     String s = response.body.substring(12, response.body.length - 2);
+  //     String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+  //     print(s);
+  //     if (response.statusCode == 200) {
+  //       print("done");
+  //       setState(() {
+  //         otpVisibility = true;
+  //         check = true;
+  //       });
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         content: Text(s1),
+  //         backgroundColor: Colors.blue,
+  //       ));
+  //       Navigator.pushReplacement(
+  //           context, MaterialPageRoute(builder: (context) => HomePage1()));
+  //     } else {
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //         content: Text(s1),
+  //         backgroundColor: Colors.red,
+  //       ));
+  //     }
+  //   } else {
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //       content: Text("Not Allowed"),
+  //       backgroundColor: Colors.red,
+  //     ));
+  //   }
+  // }
+
+// Future<void> Verify(String email, String otp) async {
+//   print(otp);
+//   var intOtp = int.parse(otp);
+//   print(intOtp);
+//   var response = await http.post(
+//       Uri.parse(
+//           "https://auth-backend-production-054a.up.railway.app/api/v1/auth/verify"),
+//       body: json.encode({"otp": intOtp, "email": email}));
+//   print(intOtp);
+//   print(email);
+//   print(response.body);
+//   String s = response.body.substring(12, response.body.length - 2);
+//   String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+//   print(s);
+//   print(response.statusCode);
+//   if (otpController != 0 && email.isNotEmpty) {
+//     if (response.statusCode == 200) {
+//       print("done");
+//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//         content: Text(s1),
+//         backgroundColor: Colors.blue,
+//       ));
+//
+//       Navigator.pushReplacement(
+//           context, MaterialPageRoute(builder: (context) => HomePage1()));
+//     } else {
+//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//         content: Text(s1),
+//         backgroundColor: Colors.red,
+//       ));
+//     }
+//   } else {
+//     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//       content: Text("Not Allowed"),
+//       backgroundColor: Colors.red,
+//     ));
+//   }
+// }
+
 }

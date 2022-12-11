@@ -211,11 +211,11 @@ class _LoginPageState extends State<LoginPage> {
                         //     emailController.text.toString(),
                         //     passwordController.text.toString());
                         // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
-
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomePage1()));
+                        login( emailController.text.toString(), passwordController.text.toString());
+                        // pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => HomePage1()));
                       },
                       child: Container(
                         width: 230,
@@ -260,5 +260,47 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future<void> login( String email, String password) async {
+    print(password);
+    print(email);
+    if (password.isNotEmpty && email.isNotEmpty ) {
+      var response = await http.post(
+          Uri.parse(
+              "https://auth-backend-production-054a.up.railway.app/api/v1/auth/login"),
+          body: json.encode({
+            'email': email.toString(),
+            'password': password.toString(),
+          }));
+      print(response.statusCode);
+      print(response.body);
+      String s = response.body.substring(12, response.body.length - 2);
+      String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+      print(s);
+      if (response.statusCode == 200) {
+        print("done");
+        setState(() {
+          otpVisibility = true;
+          check = true;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.blue,
+        ));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomePage1()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.red,
+        ));
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Not Allowed"),
+        backgroundColor: Colors.red,
+      ));
+    }
   }
 }

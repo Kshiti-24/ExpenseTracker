@@ -1562,8 +1562,8 @@ class _HomePage1State extends State<HomePage1> {
                 backgroundColor: Colors.white,
                 curve: Curves.easeIn,
                 onItemSelected: (index) => setState(() {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => HomePage1()));
+                  // Navigator.pushReplacement(context,
+                  //     MaterialPageRoute(builder: (context) => HomePage1()));
                 }),
                 mainAxisAlignment: MainAxisAlignment.center,
                 items: <BottomNavyBarItem>[
