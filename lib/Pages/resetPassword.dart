@@ -67,17 +67,17 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     child: Column(
                       children: [
                         Text(
-                          "Welcome!!!",
+                          "Don't Worry!!!",
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 22,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Poppins',
                           ),
                         ),
                         Text(
-                          "Sign Up to get started!",
+                          "Change your password!",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Poppins',
                           ),
@@ -86,7 +86,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                   ),
                   Container(
-                    child: Lottie.asset("assets/images/signUp.json",
+                    child: Lottie.asset("assets/images/reset.json",
                         width: 132, height: 132),
                   )
                 ],

@@ -33,9 +33,7 @@ class _HomePage1State extends State<HomePage1> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                  ),
+                    backgroundImage: AssetImage('assets/images/profile.png')),
                   Container(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -242,7 +240,7 @@ class _HomePage1State extends State<HomePage1> {
                               shape: BoxShape.circle, color: Color(0x1AE13B30)),
                           child: Container(
                               margin: EdgeInsets.fromLTRB(0, 24, 45, 0),
-                              child: Image.asset('assets/images/img.png')),
+                              child: Image.asset('assets/images/key.png')),
                         ),
                       ),
                     ]),
@@ -475,7 +473,7 @@ class _HomePage1State extends State<HomePage1> {
                                         margin:
                                             EdgeInsets.fromLTRB(23, 23, 0, 0),
                                         child: Image.asset(
-                                            "assets/images/img2.png")),
+                                            "assets/images/key1.png")),
                                   ],
                                 ),
                                 SizedBox(
@@ -576,7 +574,7 @@ class _HomePage1State extends State<HomePage1> {
                                   height: 48,
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
                                   child: Text(
-                                    "01",
+                                    "02",
                                     style: TextStyle(
                                       fontSize: 35,
                                       color: Color(0xFFFBE8D8),
@@ -1271,9 +1269,7 @@ class _HomePage1State extends State<HomePage1> {
                                 height: 24,
                                 width: 24,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                                ),
+                                  backgroundImage: AssetImage('assets/images/profile.png')),
                               ),
                               SizedBox(
                                 width: 5,
@@ -1376,9 +1372,7 @@ class _HomePage1State extends State<HomePage1> {
                                 height: 24,
                                 width: 24,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                                ),
+                                  backgroundImage: AssetImage('assets/images/profile.png')),
                               ),
                               SizedBox(
                                 width: 5,
@@ -1481,9 +1475,7 @@ class _HomePage1State extends State<HomePage1> {
                                 height: 24,
                                 width: 24,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                                ),
+                                  backgroundImage: AssetImage('assets/images/profile.png')),
                               ),
                               SizedBox(
                                 width: 5,

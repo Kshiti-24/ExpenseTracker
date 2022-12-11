@@ -64,17 +64,17 @@ class _LoginPage1State extends State<LoginPage1> {
                     child: Column(
                       children: [
                         Text(
-                          "Welcome!!!",
+                          "Welcome Back!!!",
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 22,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Poppins',
                           ),
                         ),
                         Text(
-                          "Sign Up to get started!",
+                          "We missed you!",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Poppins',
                           ),
@@ -83,7 +83,7 @@ class _LoginPage1State extends State<LoginPage1> {
                     ),
                   ),
                   Container(
-                    child: Lottie.asset("assets/images/signUp.json",
+                    child: Lottie.asset("assets/images/login.json",
                         width: 132, height: 132),
                   )
                 ],

@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Container(
-                    child: Lottie.asset("assets/images/signUp.json",
+                    child: Lottie.asset("assets/images/login.json",
                         width: 132, height: 132),
                   )
                 ],

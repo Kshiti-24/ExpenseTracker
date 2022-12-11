@@ -4,7 +4,7 @@ import 'package:expensetracker/main.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:spline_chart/spline_chart.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class HomePage2 extends StatefulWidget {
   const HomePage2({Key? key}) : super(key: key);
@@ -16,8 +16,8 @@ class HomePage2 extends StatefulWidget {
 
 class _HomePage2State extends State<HomePage2> {
   int _currentIndex = 0;
-  PageController? _pageController;
-
+  final panelController=PanelController();
+  bool isClicked=false;
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
@@ -44,9 +44,7 @@ class _HomePage2State extends State<HomePage2> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                ),
+                  backgroundImage: AssetImage('assets/images/profile.png')),
                 Container(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -350,23 +348,31 @@ class _HomePage2State extends State<HomePage2> {
                               SizedBox(
                                 height: 15,
                               ),
-                              Container(
-                                width: 78,
-                                height: 80,
-                                margin: EdgeInsets.fromLTRB(36, 0, 0, 0),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(0xFF303F9F),
-                                ),
-                                child: Center(
-                                    child: Text(
-                                  "Add",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontFamily: 'Poppins',
+                              GestureDetector(
+                                onTap: () =>
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                      context: context,
+                                      builder: (context) => buildSheet(context),
                                   ),
-                                )),
+                                child: Container(
+                                  width: 78,
+                                  height: 80,
+                                  margin: EdgeInsets.fromLTRB(36, 0, 0, 0),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color(0xFF303F9F),
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "Add",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontFamily: 'Poppins',
+                                    ),
+                                  )),
+                                ),
                               ),
                             ],
                           ),
@@ -605,7 +611,7 @@ class _HomePage2State extends State<HomePage2> {
                                         margin:
                                         EdgeInsets.fromLTRB(23, 23, 0, 0),
                                         child: Image.asset(
-                                            "assets/images/img2.png")),
+                                            "assets/images/key1.png")),
                                   ],
                                 ),
                                 SizedBox(
@@ -788,7 +794,7 @@ class _HomePage2State extends State<HomePage2> {
                                   height: 48,
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
                                   child: Text(
-                                    "01",
+                                    "02",
                                     style: TextStyle(
                                       fontSize: 35,
                                       color: Color(0xFFFBE8D8),
@@ -1156,7 +1162,7 @@ class _HomePage2State extends State<HomePage2> {
                                   height: 48,
                                   margin: EdgeInsets.fromLTRB(0, 0, 0, 40),
                                   child: Text(
-                                    "05",
+                                    "06",
                                     style: TextStyle(
                                       fontSize: 35,
                                       color: Color(0xFFe9e7d3),
@@ -1483,9 +1489,7 @@ class _HomePage2State extends State<HomePage2> {
                                 height: 24,
                                 width: 24,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                                ),
+                                  backgroundImage: AssetImage('assets/images/profile.png')),
                               ),
                               SizedBox(
                                 width: 5,
@@ -1588,9 +1592,7 @@ class _HomePage2State extends State<HomePage2> {
                                 height: 24,
                                 width: 24,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                                ),
+                                  backgroundImage: AssetImage('assets/images/profile.png')),
                               ),
                               SizedBox(
                                 width: 5,
@@ -1693,9 +1695,7 @@ class _HomePage2State extends State<HomePage2> {
                                 height: 24,
                                 width: 24,
                                 child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfgoRU00z3ELa7EWWrVh2taRiM9NAvuJ4EXL040B-&s'),
-                                ),
+                                  backgroundImage: AssetImage('assets/images/profile.png')),
                               ),
                               SizedBox(
                                 width: 5,
@@ -1831,6 +1831,243 @@ class _HomePage2State extends State<HomePage2> {
         ));
   }
 }
+bool isClicked=true;
+Widget buildSheet(BuildContext context) => Column(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    SizedBox(height: 24,),
+    Container(
+      height: 56,
+      decoration: BoxDecoration(
+        border: Border.all(color: Color(0xFFEEEEEE))
+      ),
+      child: Row(
+        children: [
+          SizedBox(width: 16,),
+          Icon(Icons.arrow_back_outlined),
+          SizedBox(width: 10,),
+          Text("Adding Transaction",style: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 16,
+            fontWeight: FontWeight.w500
+          ),)
+        ],
+      ),
+    ),
+    SizedBox(height: 24,),
+    Container(
+      height: 452,
+      width: 329,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Enter Spent amount",style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            fontFamily: 'Poppins'
+          ),),
+          SizedBox(height: 8,),
+          Text("Enter the amount that you have spend without using zero balance. ",style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+              color: Color(0xFF757575),
+              fontFamily: 'Poppins'
+          ),),
+          SizedBox(height: 24,),
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: "Amount",
+              enabledBorder:  OutlineInputBorder(
+                borderRadius:  BorderRadius.circular(16.0),
+                borderSide:  BorderSide( width: 1, color: Color(0xFF303F9F)),
+              ),
+              focusedBorder:  OutlineInputBorder(
+                borderRadius:  BorderRadius.circular(16.0),
+                borderSide:  BorderSide( width: 1, color: Color(0xFF303F9F)),
+              ),
+            ),
+          ),
+          SizedBox(height: 24,),
+          Text("Enter Date",style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+              fontFamily: 'Poppins'
+          ),),
+          SizedBox(height: 8,),
+          TextFormField(
+            decoration: InputDecoration(
+              enabledBorder:  OutlineInputBorder(
+                borderRadius:  BorderRadius.circular(16.0),
+                borderSide:  BorderSide( width: 1, color: Color(0xFFEEEEEE)),
+              ),
+            ),
+          ),
+          SizedBox(height: 24,),
+          Text("Mode of payment",style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              fontFamily: 'Poppins'
+          ),),
+          SizedBox(height: 8,),
+          Row(
+            children: [
+              Container(
+                // margin: EdgeInsets.fromLTRB(32, 104, 150, 16),
+                width: 101,
+                height: 32,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xFF303F9F)),
+                    borderRadius:
+                    BorderRadius.all((Radius.circular(12)))),
+                child: Center(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                           Colors.white),
+                        fixedSize: MaterialStateProperty.all(
+                            const Size(101, 32)),
+                        shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ))),
+                    onPressed: () {
+                      isClicked = ! isClicked;
+                    },
+                    child: Text(
+                      "UPI",
+                      style: TextStyle(
+                        color: Color(0xFF303F9F),
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 12,),
+              Container(
+                // margin: EdgeInsets.fromLTRB(32, 104, 150, 16),
+                width: 101,
+                height: 32,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xFF303F9F)),
+                    borderRadius:
+                    BorderRadius.all((Radius.circular(12)))),
+                child: Center(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Colors.white),
+                        fixedSize: MaterialStateProperty.all(
+                            const Size(101, 32)),
+                        shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ))),
+                    onPressed: () {
+                      isClicked = ! isClicked;
+                    },
+                    child: Text(
+                      "Card",
+                      style: TextStyle(
+                        color: Color(0xFF303F9F),
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 12,),
+              Container(
+                // margin: EdgeInsets.fromLTRB(32, 104, 150, 16),
+                width: 101,
+                height: 32,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Color(0xFF303F9F)),
+                    borderRadius:
+                    BorderRadius.all((Radius.circular(12)))),
+                child: Center(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Colors.white),
+                        fixedSize: MaterialStateProperty.all(
+                            const Size(101, 32)),
+                        shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ))),
+                    onPressed: () {
+                      isClicked = ! isClicked;
+                    },
+                    child: Text(
+                      "Cash",
+                      style: TextStyle(
+                        color: Color(0xFF303F9F),
+                        fontFamily: "Poppins",
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 24,),
+          Text("Quick note",style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+              fontFamily: 'Poppins'
+          ),),
+          SizedBox(height: 8,),
+          TextFormField(
+
+            decoration: InputDecoration(
+              labelText: "Quick note",
+              enabledBorder:  OutlineInputBorder(
+                borderRadius:  BorderRadius.circular(16.0),
+                borderSide:  BorderSide( width: 1, color: Color(0xFFEEEEEE)),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+    SizedBox(height: 22,),
+    Container(
+      // margin: EdgeInsets.fromLTRB(32, 104, 150, 16),
+      width: 328,
+      height: 48,
+      child: Center(
+        child: ElevatedButton(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                  Color(0xFF303F9F)),
+              fixedSize: MaterialStateProperty.all(
+                  const Size(328, 48)),
+              shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ))),
+          onPressed: () {
+            isClicked = ! isClicked;
+          },
+          child: Text(
+            "Save",
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: "Poppins",
+              fontSize: 16,
+              fontWeight: FontWeight.w500
+            ),
+          ),
+        ),
+      ),
+    ),
+    SizedBox(height: 16,),
+  ],
+
+);
+
 
 
 class ChartData {
