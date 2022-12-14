@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:expensetracker/main.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'signUpPage.dart';
 
 class HomePage1 extends StatefulWidget {
   const HomePage1({Key? key}) : super(key: key);
@@ -46,8 +47,7 @@ class _HomePage1State extends State<HomePage1> {
                             fontFamily: 'Poppins',
                           ),
                         ),
-                        Text(
-                          "Ankur",
+                        Text("Ankur",
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,

@@ -7,15 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:lottie/lottie.dart';
+// import 'package:timer_button/timer_button.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({
+    Key? key,
+  }) : super(
+          key: key,
+        );
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-bool otpVisibility = true;
+bool otpVisibility = false;
 bool check = false;
 
 class _SignUpPageState extends State<SignUpPage> {
@@ -134,6 +139,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
+                        suffixIcon: Icon(Icons.drive_file_rename_outline,size: 20,color: Colors.black,),
                       ),
                     ),
                     SizedBox(
@@ -146,6 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
+                        suffixIcon: Icon(Icons.email_outlined,size: 20,color: Colors.black,),
                       ),
                     ),
                     SizedBox(
@@ -158,6 +165,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
+                        suffixIcon: Icon(Icons.lock_outlined,size: 20,color: Colors.black,),
                       ),
                     ),
                     SizedBox(
@@ -171,6 +179,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           border: new OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(25.0),
                           ),
+                          suffixIcon: Icon(Icons.password_outlined,size: 20,color: Colors.black,),
                         ),
                         keyboardType: TextInputType.number,
                       ),
@@ -194,6 +203,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => LoginPage()));
+                            // otp(emailController.text.toString());
                           },
                           child: Container(
                             width: 65,
@@ -239,11 +249,17 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        login(
-                            nameController.text.toString(),
-                            emailController.text.toString(),
-                            passwordController.text.toString());
-                        check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
+                        // login(
+                        //     nameController.text.toString(),
+                        //     emailController.text.toString(),
+                        //     passwordController.text.toString());
+                        check
+                            ? Verify(emailController.text.toString(),
+                                otpController.text.toString())
+                            : login(
+                                nameController.text.toString(),
+                                emailController.text.toString(),
+                                passwordController.text.toString());
 
                         // Navigator.pushReplacement(
                         //     context,
@@ -340,9 +356,19 @@ class _SignUpPageState extends State<SignUpPage> {
           backgroundColor: Colors.red,
         ));
       }
-    } else {
+    } else if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Not Allowed"),
+        content: Text("Name cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    } else if (email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Email cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    } else if (password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Password cannot be empty"),
         backgroundColor: Colors.red,
       ));
     }
@@ -379,9 +405,59 @@ class _SignUpPageState extends State<SignUpPage> {
           backgroundColor: Colors.red,
         ));
       }
-    } else {
+    } else if (email.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Not Allowed"),
+        content: Text("Email cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    } else if (otp.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("OTP cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    }
+  }
+
+  Future<void> otp(String email) async {
+    // print(password);
+    print(email);
+    if (email.isNotEmpty) {
+      var response = await http.post(
+          Uri.parse(
+              "https://auth-backend-production-054a.up.railway.app/api/v1/auth/send-otp"),
+          body: json.encode({
+            'email': email.toString(),
+            "for_signup": true
+            // 'password': password.toString(),
+          }));
+      print(response.statusCode);
+      print(response.body);
+      String s = response.body.substring(12, response.body.length - 2);
+      String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+      print(s);
+      if (response.statusCode == 200) {
+        print("done");
+        setState(() {
+          otpVisibility = true;
+          check = true;
+          // passwordVisibility=true;
+        });
+        // Verify(emailController.text.toString(), otpController.text.toString());
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.blue,
+        ));
+        // Navigator.pushReplacement(
+        //     context, MaterialPageRoute(builder: (context) => HomePage1()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.red,
+        ));
+      }
+    } else if (email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Email cannot be empty"),
         backgroundColor: Colors.red,
       ));
     }

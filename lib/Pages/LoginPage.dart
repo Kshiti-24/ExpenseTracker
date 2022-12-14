@@ -129,6 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
+                        suffixIcon: Icon(Icons.email_outlined,size: 20,color: Colors.black,),
                       ),
                     ),
                     SizedBox(
@@ -141,6 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
+                        suffixIcon: Icon(Icons.lock_outlined,size: 20,color: Colors.black,),
                       ),
                     ),
                     SizedBox(
@@ -296,9 +298,16 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Colors.red,
         ));
       }
-    } else {
+    }
+    else if(email.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Not Allowed"),
+        content: Text("Email cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    }
+    else if(password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Password cannot be empty"),
         backgroundColor: Colors.red,
       ));
     }

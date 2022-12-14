@@ -215,10 +215,10 @@ class _LoginPage1State extends State<LoginPage1> {
                         //     passwordController.text.toString());
                         // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
                        // check ? Verify(emailController.text.toString(), otpController.text.toString()) : signInOtp(emailController.text.toString());
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomePage1()));
+                       //  Navigator.pushReplacement(
+                       //      context,
+                       //      MaterialPageRoute(
+                       //          builder: (context) => HomePage1()));
                       },
                       child: Container(
                         width: 230,
@@ -276,7 +276,8 @@ class _LoginPage1State extends State<LoginPage1> {
   // Future<void> signInOtp(String email) async{
   //   var response= await http.post(Uri.parse("https://auth-backend-production-054a.up.railway.app/api/v1/auth/send-otp"),
   //       body: json.encode({
-  //         "email" : email
+  //         "email" : email,
+  //         "for_signup": false
   //       })
   //   );
   //   print(email);

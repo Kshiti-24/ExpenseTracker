@@ -13,9 +13,9 @@ class ResetPasswordPage extends StatefulWidget {
   State<ResetPasswordPage> createState() => _ResetPasswordPageState();
 }
 
-bool otpVisibility = true;
+bool otpVisibility = false;
 bool check = false;
-bool passwordVisibility = true;
+bool passwordVisibility = false;
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
   TextEditingController otpController = TextEditingController();
@@ -132,6 +132,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
+                        suffixIcon: Icon(Icons.email_outlined,size: 20,color: Colors.black,),
                       ),
                     ),
                     SizedBox(
@@ -145,6 +146,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           border: new OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(25.0),
                           ),
+                          suffixIcon: Icon(Icons.password_outlined,size: 20,color: Colors.black,),
                         ),
                         keyboardType: TextInputType.number,
                       ),
@@ -155,14 +157,15 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                     Visibility(
                       child: TextFormField(
-                        controller: otpController,
+                        controller: passwordController,
                         decoration: InputDecoration(
                           labelText: "New Password",
                           border: new OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(25.0),
                           ),
+                          suffixIcon: Icon(Icons.lock_outlined,size: 20,color: Colors.black,),
                         ),
-                        keyboardType: TextInputType.number,
+                        // keyboardType: TextInputType.number,
                       ),
                       visible: passwordVisibility,
                     ),
@@ -171,16 +174,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // reset(
-                        //     nameController.text.toString(),
-                        //     emailController.text.toString(),
-                        //     passwordController.text.toString());
-                        // check ? Verify(emailController.text.toString(),otpController.text.toString()) : login(nameController.text.toString(),emailController.text.toString(),passwordController.text.toString());
-
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginPage1()));
+                            // passwordController.text.toString());
+                        check ?reset(otpController.text.toString(), emailController.text.toString(), passwordController.text.toString()): otp(emailController.text.toString());
+                        // Verify(emailController.text.toString(),otpController.text.toString())
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => LoginPage1()));
                       },
                       child: Container(
                         width: 230,
@@ -236,86 +236,110 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     );
   }
 
-  // Future<void> reset(int otp ,String email, String password) async {
-  //
-  //   print(password);
-  //   print(email);
-  //   if (password.isNotEmpty && email.isNotEmpty ) {
-  //     var response = await http.post(
-  //         Uri.parse(
-  //             "https://auth-backend-production-054a.up.railway.app/api/v1/auth/reset"),
-  //         body: json.encode({
-  //           'email': email.toString(),
-  //           'password': password.toString(),
-  //         }));
-  //     print(response.statusCode);
-  //     print(response.body);
-  //     String s = response.body.substring(12, response.body.length - 2);
-  //     String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
-  //     print(s);
-  //     if (response.statusCode == 200) {
-  //       print("done");
-  //       setState(() {
-  //         otpVisibility = true;
-  //         check = true;
-  //       });
-  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //         content: Text(s1),
-  //         backgroundColor: Colors.blue,
-  //       ));
-  //       Navigator.pushReplacement(
-  //           context, MaterialPageRoute(builder: (context) => HomePage1()));
-  //     } else {
-  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //         content: Text(s1),
-  //         backgroundColor: Colors.red,
-  //       ));
-  //     }
-  //   } else {
-  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //       content: Text("Not Allowed"),
-  //       backgroundColor: Colors.red,
-  //     ));
-  //   }
-  // }
+  Future<void> reset(String otp ,String email, String password) async {
 
-// Future<void> Verify(String email, String otp) async {
-//   print(otp);
-//   var intOtp = int.parse(otp);
-//   print(intOtp);
-//   var response = await http.post(
-//       Uri.parse(
-//           "https://auth-backend-production-054a.up.railway.app/api/v1/auth/verify"),
-//       body: json.encode({"otp": intOtp, "email": email}));
-//   print(intOtp);
-//   print(email);
-//   print(response.body);
-//   String s = response.body.substring(12, response.body.length - 2);
-//   String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
-//   print(s);
-//   print(response.statusCode);
-//   if (otpController != 0 && email.isNotEmpty) {
-//     if (response.statusCode == 200) {
-//       print("done");
-//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-//         content: Text(s1),
-//         backgroundColor: Colors.blue,
-//       ));
-//
-//       Navigator.pushReplacement(
-//           context, MaterialPageRoute(builder: (context) => HomePage1()));
-//     } else {
-//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-//         content: Text(s1),
-//         backgroundColor: Colors.red,
-//       ));
-//     }
-//   } else {
-//     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-//       content: Text("Not Allowed"),
-//       backgroundColor: Colors.red,
-//     ));
-//   }
-// }
+    print(password);
+    print(email);
+    print(otp);
+    var intOtp = int.parse(otp);
+    print(intOtp);
+    if (password.isNotEmpty && email.isNotEmpty ) {
+      var response = await http.post(
+          Uri.parse(
+              "https://auth-backend-production-054a.up.railway.app/api/v1/auth/reset"),
+          body: json.encode({
+            'otp' : intOtp,
+            'email': email.toString(),
+            'new_password': password.toString(),
+          }));
+      print(response.statusCode);
+      print(response.body);
+      String s = response.body.substring(12, response.body.length - 2);
+      String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+      print(s);
+      if (response.statusCode == 200) {
+        print("done");
+        setState(() {
+          otpVisibility = true;
+          check = true;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.blue,
+        ));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomePage1()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.red,
+        ));
+      }
+    }
+    else if(otp.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Password cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    }
+    else if(email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Email cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    }
+    else if(password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Password cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    }
+  }
+
+  Future<void> otp( String email) async {
+    // print(password);
+    print(email);
+    if (email.isNotEmpty ) {
+      var response = await http.post(
+          Uri.parse(
+              "https://auth-backend-production-054a.up.railway.app/api/v1/auth/send-otp"),
+          body: json.encode({
+            'email': email.toString(),
+            "for_signup": false
+            // 'password': password.toString(),
+          }));
+      print(response.statusCode);
+      print(response.body);
+      String s = response.body.substring(12, response.body.length - 2);
+      String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+      print(s);
+      if (response.statusCode == 200) {
+        print("done");
+        setState(() {
+          otpVisibility = true;
+          check = true;
+          passwordVisibility=true;
+        });
+        // Verify(emailController.text.toString(), otpController.text.toString());
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.blue,
+        ));
+        // Navigator.pushReplacement(
+        //     context, MaterialPageRoute(builder: (context) => HomePage1()));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(s1),
+          backgroundColor: Colors.red,
+        ));
+      }
+    }
+    else if(email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Email cannot be empty"),
+        backgroundColor: Colors.red,
+      ));
+    }
+  }
 
 }
