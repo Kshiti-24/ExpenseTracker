@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'homePage1.dart';
 import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -66,17 +68,17 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           "Welcome Back!!!",
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
+                            fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                         ),
                         Text(
                           "We missed you!",
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
+                            fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                         ),
                       ],
@@ -152,7 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Text(
                           "   Forgot Password ?",
-                          style: TextStyle(fontFamily: 'Poppins'),
+                          style: TextStyle(fontFamily: GoogleFonts.poppins().fontFamily,
+                          fontSize: 13),
                         ),
                         SizedBox(
                           width: 10,
@@ -195,9 +198,9 @@ class _LoginPageState extends State<LoginPage> {
                               "Reset Password",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: 'Poppins',
+                                  fontFamily: GoogleFonts.poppins().fontFamily,
                                   color: Colors.white70,
-                                  fontSize: 12),
+                                  fontSize: 9),
                             )),
                           ),
                         )
@@ -247,7 +250,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text(
                           "Login",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
+                              fontFamily: GoogleFonts.poppins().fontFamily,
                               color: Colors.white70,
                               fontSize: 16,
                               fontWeight: FontWeight.bold),
@@ -287,11 +290,11 @@ class _LoginPageState extends State<LoginPage> {
           check = true;
         });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
-          backgroundColor: Colors.blue,
+          content: Text("Logged in successfully"),
+          backgroundColor: Colors.indigo[300],
         ));
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage1()));
+            context, MaterialPageRoute(builder: (context) => HomePage1(name:  "Kshitiz",)));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(s1),

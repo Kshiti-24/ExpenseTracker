@@ -44,6 +44,7 @@ dependencies:
   lottie: ^2.0.0
   sliding_up_panel: ^2.0.0+1
   timer_button: ^2.0.0
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,11 @@ flutter:
     - assets/images/key.png
     - assets/images/key1.png
     - assets/images/profile.png
+    - assets/images/img10.png
+    - assets/images/img11.png
+    - assets/images/img12.png
+    - assets/images/img13.png
+    - assets/images/img14.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

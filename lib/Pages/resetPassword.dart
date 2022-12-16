@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'homePage1.dart';
 import 'package:lottie/lottie.dart';
 import 'package:expensetracker/Pages/LoginPage.dart';
+import 'dart:developer';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   const ResetPasswordPage({Key? key}) : super(key: key);
@@ -71,7 +73,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
+                            fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                         ),
                         Text(
@@ -79,7 +81,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
+                            fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                         ),
                       ],
@@ -211,7 +213,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                                 ? Text(
                                     "Verify",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: GoogleFonts.poppins().fontFamily,
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white70),
@@ -219,7 +221,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                                 : Text(
                                     "Reset Password",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: GoogleFonts.poppins().fontFamily,
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white70),
@@ -268,7 +270,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           backgroundColor: Colors.blue,
         ));
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage1()));
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(s1),
@@ -323,7 +325,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         // Verify(emailController.text.toString(), otpController.text.toString());
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(s1),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.indigo[300],
         ));
         // Navigator.pushReplacement(
         //     context, MaterialPageRoute(builder: (context) => HomePage1()));

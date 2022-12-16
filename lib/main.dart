@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       home: SignUpPage(),
       routes: {
-        MyRoutes.homeRoute: (context) => HomePage1(),
-        MyRoutes.homeRoute2: (context) => HomePage2(),
+        MyRoutes.homeRoute: (context) => HomePage1(name: "Kshitiz",),
+        MyRoutes.homeRoute2: (context) => HomePage2(name: "Kshitiz",),
         MyRoutes.loginRoute: (context) => SignUpPage(),
       },
     );
   }
 }
+

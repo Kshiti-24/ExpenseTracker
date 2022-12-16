@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:lottie/lottie.dart';
-// import 'package:timer_button/timer_button.dart';
+import 'dart:core';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({
@@ -19,9 +21,11 @@ class SignUpPage extends StatefulWidget {
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
-
+String? finalEmail;
 bool otpVisibility = false;
 bool check = false;
+bool isLoggedIn = false;
+String? email = '';
 
 class _SignUpPageState extends State<SignUpPage> {
   TextEditingController nameController = TextEditingController();
@@ -78,15 +82,15 @@ class _SignUpPageState extends State<SignUpPage> {
                           style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
+                            fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                         ),
                         Text(
                           "Sign Up to get started!",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Poppins',
+                            fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                         ),
                       ],
@@ -139,7 +143,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
-                        suffixIcon: Icon(Icons.drive_file_rename_outline,size: 20,color: Colors.black,),
+                        suffixIcon: Icon(
+                          Icons.drive_file_rename_outline,
+                          size: 20,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -152,7 +160,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
-                        suffixIcon: Icon(Icons.email_outlined,size: 20,color: Colors.black,),
+                        suffixIcon: Icon(
+                          Icons.email_outlined,
+                          size: 20,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -165,7 +177,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
-                        suffixIcon: Icon(Icons.lock_outlined,size: 20,color: Colors.black,),
+                        suffixIcon: Icon(
+                          Icons.lock_outlined,
+                          size: 20,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -179,7 +195,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           border: new OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(25.0),
                           ),
-                          suffixIcon: Icon(Icons.password_outlined,size: 20,color: Colors.black,),
+                          suffixIcon: Icon(
+                            Icons.password_outlined,
+                            size: 20,
+                            color: Colors.black,
+                          ),
                         ),
                         keyboardType: TextInputType.number,
                       ),
@@ -192,7 +212,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       children: [
                         Text(
                           "    Already a user ?",
-                          style: TextStyle(fontFamily: 'Poppins'),
+                          style: TextStyle(fontFamily: GoogleFonts.poppins().fontFamily,
+                          fontSize: 13),
                         ),
                         SizedBox(
                           width: 10,
@@ -236,8 +257,9 @@ class _SignUpPageState extends State<SignUpPage> {
                               "Login",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Poppins',
+                                fontFamily: GoogleFonts.poppins().fontFamily,
                                 color: Colors.white70,
+                                fontSize: 12
                               ),
                             )),
                           ),
@@ -248,7 +270,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 30,
                     ),
                     GestureDetector(
-                      onTap: () {
+                      onTap: () async {
                         // login(
                         //     nameController.text.toString(),
                         //     emailController.text.toString(),
@@ -287,6 +309,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               offset: const Offset(0.0, 0.0),
                               blurRadius: 7.0,
                               spreadRadius: 1.0,
+
                             ), //BoxShadow
                           ],
                         ),
@@ -295,15 +318,16 @@ class _SignUpPageState extends State<SignUpPage> {
                                 ? Text(
                                     "Verify",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: GoogleFonts.poppins().fontFamily,
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white70),
+                                        color: Colors.white70,
+                                    ),
                                   )
                                 : Text(
                                     "Sign Up",
                                     style: TextStyle(
-                                        fontFamily: 'Poppins',
+                                        fontFamily: GoogleFonts.poppins().fontFamily,
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white70),
@@ -345,8 +369,8 @@ class _SignUpPageState extends State<SignUpPage> {
           check = true;
         });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
-          backgroundColor: Colors.blue,
+          content: Text("OTP sent to your email address"),
+          backgroundColor: Colors.indigo[300],
         ));
         // Navigator.pushReplacement(
         //     context, MaterialPageRoute(builder: (context) => HomePage1()));
@@ -385,6 +409,10 @@ class _SignUpPageState extends State<SignUpPage> {
     print(intOtp);
     print(email);
     print(response.body);
+
+    // log(email);
+
+    // log(response.body);
     String s = response.body.substring(12, response.body.length - 2);
     String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
     print(s);
@@ -396,9 +424,12 @@ class _SignUpPageState extends State<SignUpPage> {
           content: Text(s1),
           backgroundColor: Colors.blue,
         ));
-
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage1()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage1(
+                      name: nameController.text.toString(),
+                    )));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(s1),
