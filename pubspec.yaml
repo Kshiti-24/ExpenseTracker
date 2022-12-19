@@ -45,6 +45,8 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   timer_button: ^2.0.0
   shared_preferences: ^2.0.15
+  get: ^4.6.5
+  animated_text_kit: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -94,6 +96,7 @@ flutter:
     - assets/images/img12.png
     - assets/images/img13.png
     - assets/images/img14.png
+    - assets/images/splash.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

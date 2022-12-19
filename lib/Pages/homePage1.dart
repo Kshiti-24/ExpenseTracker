@@ -1,4 +1,5 @@
 import 'package:expensetracker/Helpers/blogs.dart';
+import 'package:expensetracker/Pages/LoginPage.dart';
 import 'package:expensetracker/Pages/homePage2.dart';
 import 'package:expensetracker/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,6 +26,17 @@ bool isLoogedIn=true;
 class _HomePage1State extends State<HomePage1> {
   int _selectedIndex = 0;
   PageController? _pageController;
+  // String? email;
+
+  void _logOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print(prefs.getBool('user'));
+    prefs.setBool('user',false);
+    prefs.setString('name', "Kshiitz");
+    // prefs.setString('email', email!);
+    print(prefs.getBool('user'));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => SignUpPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +73,7 @@ class _HomePage1State extends State<HomePage1> {
                   SizedBox(width: 140.0,),
                   GestureDetector(
                     onTap: (){
+                      _logOut();
                     },
                       child: Icon(Icons.widgets_outlined, color: Colors.black,)),
                 ]),

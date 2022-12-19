@@ -12,6 +12,8 @@ import 'package:expensetracker/Helpers/category.dart';
 import 'package:expensetracker/Helpers/rewards.dart';
 import 'package:expensetracker/Helpers/task.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'signUpPage.dart';
 
 class HomePage2 extends StatefulWidget {
   String name;
@@ -26,6 +28,16 @@ class _HomePage2State extends State<HomePage2> {
   int _selectedIndex = 0;
   final panelController=PanelController();
   bool isClicked=false;
+
+  void _logOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print(prefs.getBool('user'));
+    prefs.setBool('user',false);
+    // prefs.setString('email', email!);
+    print(prefs.getBool('user'));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => SignUpPage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<ChartData> chartData = [
@@ -80,9 +92,12 @@ class _HomePage2State extends State<HomePage2> {
                 SizedBox(
                   width: 140.0,
                 ),
-                Icon(
-                  Icons.widgets_outlined,
-                  color: Colors.black,
+                GestureDetector(
+                  onTap: _logOut,
+                  child: Icon(
+                    Icons.widgets_outlined,
+                    color: Colors.black,
+                  ),
                 ),
               ],
             ),

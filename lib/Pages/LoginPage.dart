@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'homePage1.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -293,6 +294,13 @@ class _LoginPageState extends State<LoginPage> {
           content: Text("Logged in successfully"),
           backgroundColor: Colors.indigo[300],
         ));
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        print(prefs.getBool('user'));
+        prefs.setBool('user', true);
+        prefs.setString('name', "Kshitiz");
+        print(prefs.getString('name'));
+        print(prefs.getBool('user'));
+        // prefs.setString('email', emailController.text);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => HomePage1(name:  "Kshitiz",)));
       } else {

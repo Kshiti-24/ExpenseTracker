@@ -262,12 +262,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
       if (response.statusCode == 200) {
         print("done");
         setState(() {
-          otpVisibility = true;
-          check = true;
+          otpVisibility = false;
+          check = false;
+          passwordVisibility=false;
         });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(s1),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.indigo[300],
         ));
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => LoginPage()));

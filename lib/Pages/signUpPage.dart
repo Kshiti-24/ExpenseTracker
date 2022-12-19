@@ -26,6 +26,7 @@ bool otpVisibility = false;
 bool check = false;
 bool isLoggedIn = false;
 String? email = '';
+int k=1;
 
 class _SignUpPageState extends State<SignUpPage> {
   TextEditingController nameController = TextEditingController();
@@ -420,10 +421,20 @@ class _SignUpPageState extends State<SignUpPage> {
     if (otpController != 0 && email.isNotEmpty) {
       if (response.statusCode == 200) {
         print("done");
+        setState(() {
+          otpVisibility=false;
+          check=false;
+        });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(s1),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.indigo[300],
         ));
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        print(prefs.getBool('user'));
+        prefs.setBool('user', true);
+        prefs.setString('name', nameController.text);
+        print(prefs.getString('name'));
+        print(prefs.getBool('user'));
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -469,8 +480,9 @@ class _SignUpPageState extends State<SignUpPage> {
       if (response.statusCode == 200) {
         print("done");
         setState(() {
+          if(k%2!=0){
           otpVisibility = true;
-          check = true;
+          check = true;}
           // passwordVisibility=true;
         });
         // Verify(emailController.text.toString(), otpController.text.toString());
