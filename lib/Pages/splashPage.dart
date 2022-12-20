@@ -62,20 +62,24 @@ class _SplashPageState extends State<SplashPage> {
                 'Budgeteer',
                 textStyle: colorizeTextStyle,
                 colors: colorizeColors,
+                speed: Duration(seconds: 1)
               ),
             ],
             isRepeatingAnimation: true,
             repeatForever: true,
+
           ),
         ),
       ),
+
     ]);
+
   }
 
   List<MaterialColor> colorizeColors = [
     Colors.teal,
     Colors.indigo,
-    Colors.purple,
+    // Colors.purple,
     Colors.deepPurple,
   ];
 

@@ -106,236 +106,251 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                height: 460,
-                width: 280,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Colors.indigo[100],
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: const Offset(
-                        5.0,
-                        5.0,
+              SingleChildScrollView(
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  height: 460,
+                  width: 280,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    color: Colors.indigo[100],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        offset: const Offset(
+                          5.0,
+                          5.0,
+                        ),
+                        blurRadius: 10.0,
+                        spreadRadius: 4.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.indigo,
+                        offset: const Offset(0.0, 0.0),
+                        blurRadius: 2.0,
+                        spreadRadius: 1.0,
+                      ), //BoxShadow
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
                       ),
-                      blurRadius: 10.0,
-                      spreadRadius: 4.0,
-                    ), //BoxShadow
-                    BoxShadow(
-                      color: Colors.indigo,
-                      offset: const Offset(0.0, 0.0),
-                      blurRadius: 2.0,
-                      spreadRadius: 1.0,
-                    ), //BoxShadow
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    TextFormField(
-                      controller: nameController,
-                      decoration: InputDecoration(
-                        labelText: "Name",
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.drive_file_rename_outline,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        labelText: "Email",
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.email_outlined,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.lock_outlined,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Visibility(
-                      child: TextFormField(
-                        controller: otpController,
+                      TextFormField(
+                        controller: nameController,
                         decoration: InputDecoration(
-                          labelText: "OTP",
+                          labelText: "Name",
+                          labelStyle: TextStyle(
+                              fontFamily: GoogleFonts.poppins().fontFamily
+                          ),
                           border: new OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(25.0),
                           ),
                           suffixIcon: Icon(
-                            Icons.password_outlined,
+                            Icons.drive_file_rename_outline,
                             size: 20,
                             color: Colors.black,
                           ),
                         ),
-                        keyboardType: TextInputType.number,
                       ),
-                      visible: otpVisibility,
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "    Already a user ?",
-                          style: TextStyle(fontFamily: GoogleFonts.poppins().fontFamily,
-                          fontSize: 13),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
-                            // otp(emailController.text.toString());
-                          },
-                          child: Container(
-                            width: 65,
-                            height: 21,
-                            margin: EdgeInsets.fromLTRB(51, 0, 0, 0),
-                            decoration: BoxDecoration(
-                              color: Colors.indigo[200],
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  offset: const Offset(
-                                    5.0,
-                                    5.0,
-                                  ),
-                                  blurRadius: 7.0,
-                                  spreadRadius: 2.0,
-                                ), //BoxShadow
-                                BoxShadow(
-                                  color: Colors.white,
-                                  offset: const Offset(0.0, 0.0),
-                                  blurRadius: 7.0,
-                                  spreadRadius: 1.0,
-                                ), //BoxShadow
-                              ],
-                            ),
-                            child: Center(
-                                child: Text(
-                              "Login",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                                color: Colors.white70,
-                                fontSize: 12
-                              ),
-                            )),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          labelText: "Email",
+                          labelStyle: TextStyle(
+                              fontFamily: GoogleFonts.poppins().fontFamily
                           ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        // login(
-                        //     nameController.text.toString(),
-                        //     emailController.text.toString(),
-                        //     passwordController.text.toString());
-                        check
-                            ? Verify(emailController.text.toString(),
-                                otpController.text.toString())
-                            : login(
-                                nameController.text.toString(),
-                                emailController.text.toString(),
-                                passwordController.text.toString());
-
-                        // Navigator.pushReplacement(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => HomePage1()));
-                      },
-                      child: Container(
-                        width: 230,
-                        height: 51,
-                        decoration: BoxDecoration(
-                          color: Colors.indigo[200],
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black26,
-                              offset: const Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 7.0,
-                              spreadRadius: 2.0,
-                            ), //BoxShadow
-                            BoxShadow(
-                              color: Colors.white,
-                              offset: const Offset(0.0, 0.0),
-                              blurRadius: 7.0,
-                              spreadRadius: 1.0,
-
-                            ), //BoxShadow
-                          ],
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                          ),
+                          suffixIcon: Icon(
+                            Icons.email_outlined,
+                            size: 20,
+                            color: Colors.black,
+                          ),
                         ),
-                        child: Center(
-                            child: check
-                                ? Text(
-                                    "Verify",
-                                    style: TextStyle(
-                                        fontFamily: GoogleFonts.poppins().fontFamily,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white70,
-                                    ),
-                                  )
-                                : Text(
-                                    "Sign Up",
-                                    style: TextStyle(
-                                        fontFamily: GoogleFonts.poppins().fontFamily,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white70),
-                                  )),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        controller: passwordController,
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          labelStyle: TextStyle(
+                              fontFamily: GoogleFonts.poppins().fontFamily
+                          ),
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                          ),
+                          suffixIcon: Icon(
+                            Icons.lock_outlined,
+                            size: 20,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Visibility(
+                        child: TextFormField(
+                          controller: otpController,
+                          decoration: InputDecoration(
+                            labelText: "OTP",
+                            labelStyle: TextStyle(
+                                fontFamily: GoogleFonts.poppins().fontFamily
+                            ),
+
+                            border: new OutlineInputBorder(
+                              borderRadius: new BorderRadius.circular(25.0),
+                            ),
+                            suffixIcon: Icon(
+                              Icons.password_outlined,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                          ),
+                          keyboardType: TextInputType.number,
+                        ),
+                        visible: otpVisibility,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "    Already a user ?",
+                            style: TextStyle(fontFamily: GoogleFonts.poppins().fontFamily,
+                            fontSize: 13),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+                              // otp(emailController.text.toString());
+                            },
+                            child: Container(
+                              width: 65,
+                              height: 21,
+                              margin: EdgeInsets.fromLTRB(51, 0, 0, 0),
+                              decoration: BoxDecoration(
+                                color: Colors.indigo[200],
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    offset: const Offset(
+                                      5.0,
+                                      5.0,
+                                    ),
+                                    blurRadius: 7.0,
+                                    spreadRadius: 2.0,
+                                  ), //BoxShadow
+                                  BoxShadow(
+                                    color: Colors.white,
+                                    offset: const Offset(0.0, 0.0),
+                                    blurRadius: 7.0,
+                                    spreadRadius: 1.0,
+                                  ), //BoxShadow
+                                ],
+                              ),
+                              child: Center(
+                                  child: Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: GoogleFonts.poppins().fontFamily,
+                                  color: Colors.white70,
+                                  fontSize: 12
+                                ),
+                              )),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          // login(
+                          //     nameController.text.toString(),
+                          //     emailController.text.toString(),
+                          //     passwordController.text.toString());
+                          check
+                              ? Verify(emailController.text.toString(),
+                                  otpController.text.toString())
+                              : login(
+                                  nameController.text.toString(),
+                                  emailController.text.toString(),
+                                  passwordController.text.toString());
+
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => HomePage1()));
+                        },
+                        child: Container(
+                          width: 230,
+                          height: 51,
+                          decoration: BoxDecoration(
+                            color: Colors.indigo[200],
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                offset: const Offset(
+                                  5.0,
+                                  5.0,
+                                ),
+                                blurRadius: 7.0,
+                                spreadRadius: 2.0,
+                              ), //BoxShadow
+                              BoxShadow(
+                                color: Colors.white,
+                                offset: const Offset(0.0, 0.0),
+                                blurRadius: 7.0,
+                                spreadRadius: 1.0,
+
+                              ), //BoxShadow
+                            ],
+                          ),
+                          child: Center(
+                              child: check
+                                  ? Text(
+                                      "Verify",
+                                      style: TextStyle(
+                                          fontFamily: GoogleFonts.poppins().fontFamily,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white70,
+                                      ),
+                                    )
+                                  : Text(
+                                      "Sign Up",
+                                      style: TextStyle(
+                                          fontFamily: GoogleFonts.poppins().fontFamily,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white70),
+                                    )),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ]),
@@ -370,30 +385,46 @@ class _SignUpPageState extends State<SignUpPage> {
           check = true;
         });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("OTP sent to your email address"),
+          content: Text("OTP sent to your email address",style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.indigo[300],
         ));
+        // Navigator.pushReplacement(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context) => VerifyPage()
+                  // name: nameController.text.toString(),
+                // ));
         // Navigator.pushReplacement(
         //     context, MaterialPageRoute(builder: (context) => HomePage1()));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
+          content: Text(s1,style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.red,
         ));
       }
     } else if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Name cannot be empty"),
+        content: Text("Name cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     } else if (email.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Email cannot be empty"),
+        content: Text("Email cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     } else if (password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Password cannot be empty"),
+        content: Text("Password cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     }
@@ -426,7 +457,9 @@ class _SignUpPageState extends State<SignUpPage> {
           check=false;
         });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
+          content: Text(s1,style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.indigo[300],
         ));
         SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -443,18 +476,24 @@ class _SignUpPageState extends State<SignUpPage> {
                     )));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
+          content: Text(s1,style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.red,
         ));
       }
     } else if (email.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Email cannot be empty"),
+        content: Text("Email cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     } else if (otp.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("OTP cannot be empty"),
+        content: Text("OTP cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     }
@@ -480,27 +519,32 @@ class _SignUpPageState extends State<SignUpPage> {
       if (response.statusCode == 200) {
         print("done");
         setState(() {
-          if(k%2!=0){
           otpVisibility = true;
-          check = true;}
+          check = true;
           // passwordVisibility=true;
         });
         // Verify(emailController.text.toString(), otpController.text.toString());
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
+          content: Text(s1,style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.blue,
         ));
         // Navigator.pushReplacement(
         //     context, MaterialPageRoute(builder: (context) => HomePage1()));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
+          content: Text(s1,style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.red,
         ));
       }
     } else if (email.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Email cannot be empty"),
+        content: Text("Email cannot be empty",style: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     }

@@ -129,6 +129,9 @@ class _LoginPageState extends State<LoginPage> {
                       controller: emailController,
                       decoration: InputDecoration(
                         labelText: "Email",
+                        labelStyle: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily
+                        ),
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
@@ -142,6 +145,9 @@ class _LoginPageState extends State<LoginPage> {
                       controller: passwordController,
                       decoration: InputDecoration(
                         labelText: "Password",
+                        labelStyle: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily
+                        ),
                         border: new OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(25.0),
                         ),
@@ -291,7 +297,9 @@ class _LoginPageState extends State<LoginPage> {
           check = true;
         });
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text("Logged in successfully"),
+          content: Text("Logged in successfully",style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.indigo[300],
         ));
         SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -305,20 +313,26 @@ class _LoginPageState extends State<LoginPage> {
             context, MaterialPageRoute(builder: (context) => HomePage1(name:  "Kshitiz",)));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(s1),
+          content: Text(s1,style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
           backgroundColor: Colors.red,
         ));
       }
     }
     else if(email.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Email cannot be empty"),
+        content: Text("Email cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     }
     else if(password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Password cannot be empty"),
+        content: Text("Password cannot be empty",style: TextStyle(
+            fontFamily: GoogleFonts.poppins().fontFamily
+        ),),
         backgroundColor: Colors.red,
       ));
     }
