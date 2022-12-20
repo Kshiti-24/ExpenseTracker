@@ -31,7 +31,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   startSplashScreen() {
-    var duration = const Duration(seconds: 3, milliseconds: 800);
+    var duration = const Duration(seconds: 2, milliseconds: 900);
     print(widget.user);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(
