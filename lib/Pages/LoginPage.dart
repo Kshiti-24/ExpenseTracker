@@ -302,6 +302,13 @@ class _LoginPageState extends State<LoginPage> {
           ),),
           backgroundColor: Colors.indigo[300],
         ));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("You can use the top right icon to logout",style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
+          backgroundColor: Colors.indigo[300],
+          duration: Duration(seconds: 7),
+        ));
         SharedPreferences prefs = await SharedPreferences.getInstance();
         print(prefs.getBool('user'));
         prefs.setBool('user', true);

@@ -154,7 +154,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           border: new OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(25.0),
                           ),
-                          suffixIcon: Icon(Icons.password_outlined,size: 20,color: Colors.black,),
+                          suffixIcon: GestureDetector(
+                            onTap:() async { otp(emailController.text.toString());},
+                            child: Icon(
+                              Icons.refresh_outlined,
+                              size: 36,
+                              color: Colors.indigo,
+                            ),
+                          ),
                         ),
                         keyboardType: TextInputType.number,
                       ),
@@ -347,6 +354,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           content: Text(s1,style: TextStyle(
               fontFamily: GoogleFonts.poppins().fontFamily
           ),),
+          backgroundColor: Colors.indigo[300],
+        ));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("You can click on the refresh icon in OTP to resend the OTP",style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
+          duration: Duration(seconds: 7),
           backgroundColor: Colors.indigo[300],
         ));
         // Navigator.pushReplacement(

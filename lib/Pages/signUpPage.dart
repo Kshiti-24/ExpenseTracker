@@ -206,14 +206,16 @@ class _SignUpPageState extends State<SignUpPage> {
                             labelStyle: TextStyle(
                                 fontFamily: GoogleFonts.poppins().fontFamily
                             ),
-
                             border: new OutlineInputBorder(
                               borderRadius: new BorderRadius.circular(25.0),
                             ),
-                            suffixIcon: Icon(
-                              Icons.password_outlined,
-                              size: 20,
-                              color: Colors.black,
+                            suffixIcon: GestureDetector(
+                              onTap:() async { otp(emailController.text.toString());},
+                              child: Icon(
+                                Icons.refresh_outlined,
+                                size: 36,
+                                color: Colors.indigo,
+                              ),
                             ),
                           ),
                           keyboardType: TextInputType.number,
@@ -390,6 +392,13 @@ class _SignUpPageState extends State<SignUpPage> {
           ),),
           backgroundColor: Colors.indigo[300],
         ));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("You can click on the refresh icon in OTP to resend the OTP",style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
+          duration: Duration(seconds: 7),
+          backgroundColor: Colors.indigo[300],
+        ));
         // Navigator.pushReplacement(
         //     context,
         //     MaterialPageRoute(
@@ -462,6 +471,13 @@ class _SignUpPageState extends State<SignUpPage> {
           ),),
           backgroundColor: Colors.indigo[300],
         ));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("You can use the top right icon to logout",style: TextStyle(
+              fontFamily: GoogleFonts.poppins().fontFamily
+          ),),
+          backgroundColor: Colors.indigo[300],
+          duration: Duration(seconds: 7),
+        ));
         SharedPreferences prefs = await SharedPreferences.getInstance();
         print(prefs.getBool('user'));
         prefs.setBool('user', true);
@@ -528,7 +544,7 @@ class _SignUpPageState extends State<SignUpPage> {
           content: Text(s1,style: TextStyle(
               fontFamily: GoogleFonts.poppins().fontFamily
           ),),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.indigo[300],
         ));
         // Navigator.pushReplacement(
         //     context, MaterialPageRoute(builder: (context) => HomePage1()));

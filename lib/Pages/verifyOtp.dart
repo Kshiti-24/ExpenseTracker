@@ -138,15 +138,21 @@
 // //     }
 // //   }
 // // }
+// import 'dart:convert';
+//
 // import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:lottie/lottie.dart';
+// import 'homePage1.dart';
 // import 'resetPassword.dart';
 // import 'LoginPage.dart';
+// import 'package:http/http.dart' as http;
 //
 // class VerifyPage extends StatefulWidget {
-//   const VerifyPage({Key? key}) : super(key: key);
+//   String name;
+//   String email;
+//    VerifyPage({Key? key,required this.name,required this.email}) : super(key: key);
 //
 //   @override
 //   State<VerifyPage> createState() => _VerifyPageState();
@@ -161,6 +167,9 @@
 //   TextEditingController controller5 = TextEditingController();
 //   TextEditingController controller6 = TextEditingController();
 //
+//   int sum=0;
+//   String otp="";
+//   int c=100000;
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -394,7 +403,7 @@
 //       ),
 //     );
 //   }
-//   Widget _textFieldOTP({bool? first, last}) {
+//   Widget _textFieldOTP({bool? first, last,String? controller}) {
 //     return Container(
 //       height: 50,
 //       child: AspectRatio(
@@ -409,11 +418,15 @@
 //             if (value.length == 0 && first == false) {
 //               FocusScope.of(context).previousFocus();
 //             }
+//             otp=otp+controller1.text.toString();
+//             if(last==true){
+//
+//             }
 //           },
 //           showCursor: false,
 //           readOnly: false,
 //           textAlign: TextAlign.center,
-//           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+//           style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
 //           keyboardType: TextInputType.number,
 //           maxLength: 1,
 //           decoration: InputDecoration(
@@ -428,5 +441,119 @@
 //         ),
 //       ),
 //     );
+//   }
+//   Future<void> Verify() async {
+//     print(otp);
+//     var intOtp = int.parse(otp);
+//     print(intOtp);
+//     var response = await http.post(
+//         Uri.parse(
+//             "https://auth-backend-production-054a.up.railway.app/api/v1/auth/verify"),
+//         body: json.encode({"otp": intOtp, "email": email}));
+//     print(intOtp);
+//     print(widget.email);
+//     print(response.body);
+//
+//     // log(email);
+//
+//     // log(response.body);
+//     String s = response.body.substring(12, response.body.length - 2);
+//     String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+//     print(s);
+//     print(response.statusCode);
+//     if (intOtp != 0 && widget.email.isNotEmpty) {
+//       if (response.statusCode == 200) {
+//         print("done");
+//         // setState(() {
+//         //   otpVisibility=false;
+//         //   check=false;
+//         // });
+//         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//           content: Text(s1,style: TextStyle(
+//               fontFamily: GoogleFonts.poppins().fontFamily
+//           ),),
+//           backgroundColor: Colors.indigo[300],
+//         ));
+//         SharedPreferences prefs = await SharedPreferences.getInstance();
+//         print(prefs.getBool('user'));
+//         prefs.setBool('user', true);
+//         prefs.setString('name', widget.name);
+//         print(prefs.getString('name'));
+//         print(prefs.getBool('user'));
+//         Navigator.pushReplacement(
+//             context,
+//             MaterialPageRoute(
+//                 builder: (context) => HomePage1(
+//                   name: widget.name,
+//                 )));
+//       } else {
+//         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//           content: Text(s1,style: TextStyle(
+//               fontFamily: GoogleFonts.poppins().fontFamily
+//           ),),
+//           backgroundColor: Colors.red,
+//         ));
+//       }
+//     } else if (widget.email.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//         content: Text("Email cannot be empty",style: TextStyle(
+//             fontFamily: GoogleFonts.poppins().fontFamily
+//         ),),
+//         backgroundColor: Colors.red,
+//       ));
+//     } else if (otp.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//         content: Text("OTP cannot be empty",style: TextStyle(
+//             fontFamily: GoogleFonts.poppins().fontFamily
+//         ),),
+//         backgroundColor: Colors.red,
+//       ));
+//     }
+//   }
+//
+//   Future<void> OTP() async {
+//     // print(password);
+//     print(widget.email);
+//     if (widget.email.isNotEmpty) {
+//       var response = await http.post(
+//           Uri.parse(
+//               "https://auth-backend-production-054a.up.railway.app/api/v1/auth/send-otp"),
+//           body: json.encode({
+//             'email': email.toString(),
+//             "for_signup": true
+//             // 'password': password.toString(),
+//           }));
+//       print(response.statusCode);
+//       print(response.body);
+//       String s = response.body.substring(12, response.body.length - 2);
+//       String s1 = s[0].toUpperCase() + s.substring(1, s.length) + ".";
+//       print(s);
+//       if (response.statusCode == 200) {
+//         print("done");
+//         // Verify(emailController.text.toString(), otpController.text.toString());
+//         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//           content: Text(s1,style: TextStyle(
+//               fontFamily: GoogleFonts.poppins().fontFamily
+//           ),),
+//           backgroundColor: Colors.blue,
+//         ));
+//         // Navigator.pushReplacement(
+//         //     context, MaterialPageRoute(builder: (context) => HomePage1()));
+//       } else {
+//         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//           content: Text(s1,style: TextStyle(
+//               fontFamily: GoogleFonts.poppins().fontFamily
+//           ),),
+//           backgroundColor: Colors.red,
+//         ));
+//       }
+//     } else if (widget.email.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//         content: Text("Email cannot be empty",style: TextStyle(
+//             fontFamily: GoogleFonts.poppins().fontFamily
+//         ),),
+//         backgroundColor: Colors.red,
+//       ));
+//     }
 //   }
 // }
